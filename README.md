@@ -1,9 +1,26 @@
 # thevibhor.com
 
-Personal site and writing archive for Vibhor Sharma — integration, APIs, MuleSoft, and AI.
+Personal site and writing by **Vibhor Sharma** — Principal Solutions Engineer at Salesforce (MuleSoft, APIs, enterprise AI).
 
-Published with [GitHub Pages](https://pages.github.com/) from this repository.
+Published with [GitHub Pages](https://pages.github.com/).
 
-**Live URL:** https://shri-vibhor-sharma.github.io/thevibhor.com/
+- **Site:** https://thevibhor.com/
+- **Repo:** https://github.com/shri-vibhor-sharma/thevibhor.com
+- **LinkedIn:** https://www.linkedin.com/in/svibhors
 
-To use the custom domain `thevibhor.com`, add a `CNAME` file with that hostname and point DNS (A/ALIAS/CNAME) at GitHub Pages.
+## SEO
+
+- `robots.txt` and `sitemap.xml` for crawlers
+- Canonical URLs, Open Graph, and JSON-LD (`Person`, `WebSite`, `BlogPosting`)
+
+## Custom domain
+
+`CNAME` is set to `thevibhor.com`. Point DNS at GitHub Pages:
+
+| Type | Host | Value |
+|------|------|--------|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `shri-vibhor-sharma.github.io` |
