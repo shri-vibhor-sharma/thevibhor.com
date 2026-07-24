@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Working with Runtime Fabric — thevibhor.com</title>
+<meta name="description" content="Article tells us about the mulesoft’s runtime fabric and some basics about its operations">
+<meta name="author" content="Vibhor Sharma">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span>July 25, 2019 &middot; RTF, Runtime Fabric</span></p>
+  <h1>Working with Runtime Fabric</h1>
+  <div class="meta">July 25, 2019 &middot; RTF, Runtime Fabric · By Vibhor Sharma</div>
+  <img class="featured" src="../assets/images/Web_Anypoint_RuntimeFabric_Automated_Orchestration_V1.png" alt="RTF">
+  <div class="content">
+<p>The most interesting development on Mulesoft&#8217;s Anypoint platform in recent past is the Advent and promotion of the Runtime Fabric.</p>
+<p>Runtime Fabric Engine is essentially replacement of the on Premise installation of mulesoft aka. Good old mule engine. But it combines the features of both cloudhub and on-prem. Apps deployed to the RTF are deployed to a single standalone container and does not interfere with the resources of the other apps in the server. Also, apps can be monitored and managed directly from the Anypoint platform cloudhub. Although a catch here is that there is another console to manage your containers and see the logs which is called admin panel it&#8217;s like Mule Management Console itself but specially designed to manage the RTF.</p>
+<p><strong>Architecture &#8211;&nbsp;</strong></p>
+<p>Runtime fabric has the concept of worker nodes and controller nodes &#8211;</p>
+<ol>
+<li><strong>Controler nodes</strong> &#8211; The are primary nodes responsible for installing and keeping the setup of the RTF, it also has distributed database, load balancer service and couple of more services to let you manage your cluster.</li>
+<li><strong>Worker Nodes &#8211;&nbsp;</strong>These nodes are basically the vm containers in which your mule apps, proxies and api gateways are installed.</li>
+</ol>
+<p><img loading="lazy" decoding="async" class="wp-image-40 aligncenter" src="../assets/images/Untitled-Diagram-300x153.png" alt="" width="390" height="199" srcset="../assets/images/Untitled-Diagram-300x153.png 300w, ../assets/images/Untitled-Diagram.png 612w" sizes="(max-width: 390px) 100vw, 390px" /></p>
+<p>The reason why it&#8217;s interesting is because &#8211;</p>
+<ul>
+<li>Uses cutting edge technology like containers and Kubernetes</li>
+<li>App deployment follows the container approach i.e. each app is deployed to a standalone container.</li>
+<li>By utilizing the power of Kubernetes internally, clusters can be built of the applications for resilience and reliability.</li>
+<li>Provides management Console to maintain the Containers OOB &#8211;</li>
+</ul>
+<p><img loading="lazy" decoding="async" class=" wp-image-38 aligncenter" src="../assets/images/Capture-300x189.png" alt="alt ops center" width="448" height="283" srcset="../assets/images/Capture-300x189.png 300w, ../assets/images/Capture-768x485.png 768w, ../assets/images/Capture-200x125.png 200w, ../assets/images/Capture.png 871w" sizes="(max-width: 448px) 100vw, 448px" /></p>
+<ul>
+<li>You can Run multiple versions of mule applications in a same fabric. This is possible because power of containers is utilized here and we get this feature which is available which we can get in cloudhub itself.</li>
+<li>There is no concept of hard setup of &#8220;cores allocation&#8221; you can allocate the cores and memory as you wish for e.g. you can allocate 0.15 vCores to you app and say 300 MBs of RAM as per your requirement.</li>
+<li>Both vertical and horizontal Scaling are supported. Vertical by increasing RAM and CPU dynamically and Horizontal by adding more Workers/ Servers to the cluster.</li>
+<li>Apps are installed to your on-Prem but can be managed directly from The anypoint platform.</li>
+</ul>
+<p><strong>Steps to Deploy the Applications to RTF &#8211;&nbsp;</strong></p>
+<ol>
+<li>Create a jar archive of your project from anypoint studio or use maven command to create the archieve</li>
+<li>Open CloudHub console and goto runtime section</li>
+<li>Select the deployment target to your runtime fabric and upload the jar file there</li>
+<li>Select the number of cores and RAM you wish to allocate for the application</li>
+<li>In the ingress section select to enable the inbound traffic to the application.</li>
+<li>In the properties section define your properties, the best way is to define only environment variable there and code should pick properties from a property file which you have defined.</li>
+<li>Wait for some time and your application will be up and running.</li>
+</ol>
+<p>By Default all the apps deployed to RTF in your cluster will be HTTPS by default if you have a load balancer and the base url will be something like &#8211;</p>
+<p><strong>https://&lt;base-url&gt;/&lt;application-name&gt;/&lt;application-path&gt;</strong></p>
+<p><em>e.g. https://thevibhor.com/workday-integration/api/employees</em></p>
+<p>The URL Also comes up when you deploy the application and it is displayed to your apps home screen.</p>
+<p><strong>Few Shortcomings and Enhancements required &#8211;</strong></p>
+<ol>
+<li>Anypoint application custom notifications are not enabled for apps deployed to RTF and is only available for the ones deployed to cloudhub this increases developers work as we have to create a custom API to send notifications based on the Events.</li>
+<li>You have to open the OPS center everytime you have to check the logs to check what actually went wrong, this could be improved if the details are available directly in the cloudHub management console.</li>
+<li>Bugs in API KIT Router, which got fixed after creating ticket to the team, thanks for the quick response there. Use version 4.2.x to deploy your applications and you will be fine.</li>
+<li>After deploying the application when you run it for first time it takes some time but its not that considerable.</li>
+</ol>
+<p>Overall the Product is awesome and its appreciated by developers and architects allover the world for ease of use and loads of features it provides. Mulesoft Keeps on inventing new stuff and improve their product, Kudos</p>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a></span>
+  </div>
+</footer>
+</body>
+</html>

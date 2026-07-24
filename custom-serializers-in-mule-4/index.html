@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom Serializers in Mule 4 — thevibhor.com</title>
+<meta name="description" content="In Mule 4 by default, the runtime engine uses the ordinary Java serialization. However, you can configure to">
+<meta name="author" content="Vibhor Sharma">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span>March 05, 2020 &middot; mule</span></p>
+  <h1>Custom Serializers in Mule 4</h1>
+  <div class="meta">March 05, 2020 &middot; mule · By Vibhor Sharma</div>
+  
+  <div class="content">
+<p>In Mule 4 by default, the runtime engine uses the ordinary Java serialization. However, you can configure to use <code>defaultObjectSerializer</code> in your Mule application which would specicy serialization mechanism, such as the Kryo serializer or any other custom serializer.</p>
+
+
+
+<p>Using a custom serializer can improve functionality and performance when Mule executes any of the following processes:</p>
+
+
+
+<ul><li>Read from or write to a persistent object store</li><li>Read from or write to a persistent VM or JMS queue</li><li>Distribute an object through a Mule cluster</li><li>Read from or write to an object from a file</li></ul>
+
+
+
+<p>Customization does not affect the behavior of the Batch module, which always uses the Kryo serializer. Below is the Example of how to use a custom Serializer &#8211; </p>
+
+
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;mule xmlns="http://www.mulesoft.org/schema/mule/core"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:kryo="http://www.mulesoft.org/schema/mule/kryo"
+       xsi:schemaLocation="
+        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+        http://www.mulesoft.org/schema/mule/kryo http://www.mulesoft.org/schema/mule/kryo/current/mule-kryo.xsd">
+
+    &lt;kryo:serializer name="kryo" />
+    &lt;configuration defaultObjectSerializer-ref="kryo" />
+
+&lt;/mule></code></pre>
+
+
+
+<h2 id="configure-a-custom-serializer">Configure a Custom Serializer</h2>
+
+
+
+<p>Configure the default <code>ObjectSerializer</code> for your Mule application using the Mule <code>&lt;configuration></code> tag:</p>
+
+
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;mule xmlns="http://www.mulesoft.org/schema/mule/core"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:spring="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd">
+
+  &lt;spring:config name="Spring_Config" files="serializer.xml" />
+  &lt;configuration defaultObjectSerializer-ref="customSerializer" />
+
+&lt;/mule></code></pre>
+
+
+
+<p>Then you have to configure the Bean in the object Serializer.xml file &#8211; </p>
+
+
+
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	&lt;bean id="customSerializer" name="customSerializer"
+		class="com.my.CustomSerializer">
+		&lt;!-- ... -->
+	&lt;/bean>
+&lt;/beans></code></pre>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a></span>
+  </div>
+</footer>
+</body>
+</html>

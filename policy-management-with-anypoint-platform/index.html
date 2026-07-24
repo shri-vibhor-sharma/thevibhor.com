@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Policy Management With Anypoint Platform — thevibhor.com</title>
+<meta name="description" content="Once you have built the integration/ api the next step is the administration of the API. Good news">
+<meta name="author" content="Vibhor Sharma">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span>August 07, 2019 &middot; anypoint management &middot; managment, platform management</span></p>
+  <h1>Policy Management With Anypoint Platform</h1>
+  <div class="meta">August 07, 2019 &middot; anypoint management &middot; managment, platform management · By Vibhor Sharma</div>
+  
+  <div class="content">
+<p>Once you have built the integration/ api the next step is the administration of the API. Good news is anypoint platform provides us an easy way to manage the APIs using API Gateways. </p>
+
+
+
+<p>An API Gateway is essentially an wrapper over your application. The advantage of having an wrapper is you can apply API management with ease without much custom coding. Mulesoft provides set of custom pre-defined policies which we can leverage for API Management. Some of the standard policies along with their use cases are listed below &#8211; </p>
+
+
+
+<ul><li><strong>Authentication Policies &#8211; </strong>These policies enables an administrator of the API to apply authentication to the APIs, there are a variety of authentication methods available some of them are &#8211; </li></ul>
+
+
+
+<ol><li><em><span style="text-decoration: underline;">Basic Authentication</span></em> &#8211; Basic authentication as name suggests is just username and password based authentication, additionally use can have a basic authentication- LDAP version, we can utilize organizational LDAP resource to authenticate users based on the same. </li></ol>
+
+
+
+<p class="has-background has-very-light-gray-background-color wp-block-paragraph"><em>Use Case &#8211; </em>When you would like to keep the access generic and not the role/instance based you can use the basic authentication.</p>
+
+
+
+<p><em>    2.  <span style="text-decoration: underline;">Client ID Enforcement &#8211;</span></em>  In this policy when a consumer of the API   wants to access the resources, they have to go-to the anypoint exchange and request for the access for your application. After your access is approved you will get an Client-id and client-secret to be used in headers in your further requests to the api. </p>
+
+
+
+<p class="has-background has-very-light-gray-background-color wp-block-paragraph"><em>Use Case</em> &#8211; Typically used in scenarios where you have multiple consumers of the API and you want to experience fine grained control over the consumers such as rate limiting etc. </p>
+
+
+
+<p>3. <em><span style="text-decoration: underline;">OAUTH 2.0 Policy &#8211; </span></em> In this policy typically a delegated authorization framework for your rest APIs. It allows applications to get limited access to the users data without the need of passwords. It basically decouples the actual implementation from the authentication logic by having an authentication server in place. Mulesoft provides a functionality to create your own OAUTH 2.0 provider using custom code or to integrate from a wide variety of the market vendors. </p>
+
+
+
+<p><a href="https://oauth.net/2/">https://oauth.net/2/</a></p>
+
+
+
+<p class="has-background has-very-light-gray-background-color wp-block-paragraph"><em>Use Case &#8211; </em>Typically used in the scenarios where you have multiple consumers of the API and you don&#8217;t want to give platform access to all of them. This is also used in scenarios where you have user to app, app to app etc authentication without loading the actual implementation API with the authentication logic. </p>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a></span>
+  </div>
+</footer>
+</body>
+</html>

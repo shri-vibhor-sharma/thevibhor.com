@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enable HTTPS on Mule 4 Apps — thevibhor.com</title>
+<meta name="description" content="In today’s world security is a big concern, talking about APIs the SSL is an industry standard which">
+<meta name="author" content="Vibhor Sharma">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span>July 24, 2019 &middot; configure</span></p>
+  <h1>Enable HTTPS on Mule 4 Apps</h1>
+  <div class="meta">July 24, 2019 &middot; configure · By Vibhor Sharma</div>
+  <img class="featured" src="../assets/images/Secure-HTTPS-PNG-Pic.png" alt="Enable HTTPS on Mule 4 Apps">
+  <div class="content">
+<p>In today&#8217;s world security is a big concern, talking about APIs the SSL is an industry standard which is a must to secure your Apis.</p>
+
+
+
+<p>To Enable SSL on your HTTP&nbsp; listeners its very simple and straight forward process, we have to generate the certs first and then publish those certs to your mule apps keystore. Please follow the below process &#8211;</p>
+
+
+
+<ol><li><strong>Generating the SSL Certificates Locally</strong></li></ol>
+
+
+
+<p>To generate the SSL Certs locally we have to use the keytool utility which is provided in Java by default. You have to open a command line and type in the below commands &#8211;&nbsp;</p>
+
+
+
+<p><strong>keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 365 -keysize 2048</strong></p>
+
+
+
+<p>This will generate java style keys jks and if you want to convert it into pkcs format please use the below command &#8211;&nbsp;</p>
+
+
+
+<p><strong>keytool -importkeystore -srckeystore keystore.jks -destkeystore keystore.jks -deststoretype pkcs12</strong></p>
+
+
+
+<p><strong>2. In your Mule Apps HTTP component please make configurations as mentioned in below screenshots &#8211;&nbsp;</strong></p>
+
+
+
+<figure><a href="https://1.bp.blogspot.com/-dSM6gueUdHc/XQ8joZgHANI/AAAAAAAAV2c/uYpO2OCAxWEjkS38whgkYQigyKExgZhxwCLcBGAs/s1600/mule%2B1.PNG"><img decoding="async" src="../assets/images/mule_1.PNG" alt=""/></a></figure>
+
+
+
+<p><strong><br><a href="https://1.bp.blogspot.com/-Qepc4oNMAXU/XQ8joud_QOI/AAAAAAAAV2g/LAokCjqdcJYSdiL4rZnN7xIdjJ2m0WoBgCLcBGAs/s1600/mule%2B2.PNG"></a><br><br>3. use postman to hit the url &#8211;&nbsp;https://localhost/helloplease dont forget to disable the ssl verification in postman settings <br>
+
+</strong></p>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a></span>
+  </div>
+</footer>
+</body>
+</html>

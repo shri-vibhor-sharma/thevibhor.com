@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maven Scopes for Mule — thevibhor.com</title>
+<meta name="description" content="When you do a maven build you might have seen the jars coming along with your mule Archive. ">
+<meta name="author" content="Vibhor Sharma">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span>July 24, 2019</span></p>
+  <h1>Maven Scopes for Mule</h1>
+  <div class="meta">July 24, 2019 · By Vibhor Sharma</div>
+  <img class="featured" src="../assets/images/mulesoftcover.png" alt="Maven Scopes for Mule">
+  <div class="content">
+<p>When you do a maven build you might have seen the jars coming along with your mule Archive.&nbsp;</p>
+
+
+
+<p>But is the addition of all the jar dependencies useful while you create your zip or it should depend on the runtime environment?</p>
+
+
+
+<p>The simple answer to this question is yes it should depend on the runtime environment in which you are running your mule application, but how do we specify the different attributes&nbsp;to add/remove the zip files, the answer to this lies in POM file.&nbsp;</p>
+
+
+
+<p>In your pom.xml you have the option to specify the scopes for the dependencies, below are some of the popular scopes which can be used to make sure only the essential jars are added to your mule archive and which would, in turn, help you to &#8211;&nbsp;</p>
+
+
+
+<p>1. Make sure you use the latest/platform compatible jars for your application.&nbsp;</p>
+
+
+
+<p>2. Reduction in size/de-duplication of the jars for the application.&nbsp;</p>
+
+
+
+<p>3. Making the versioning more consistent.&nbsp;</p>
+
+
+
+<p>Below are some of the Scopes of the mule in maven &#8211;&nbsp;</p>
+
+
+
+<ul><li><strong>Compile Scope(Default Scope)&nbsp;</strong>&#8211; The compile scope is the default scope in the maven for mule, it means that the dependency is required all the time, dependency needs to be included in the application package. The best example of this would be external libraries used by the application.</li></ul>
+
+
+
+<ul><li><strong>Runtime</strong>&nbsp;&#8211; This scope indicates that the dependencies are only required at runtime and not for the compilation. Example for this type of dependency is&nbsp;<strong>log4j</strong></li></ul>
+
+
+
+<ul><li><strong>Test &#8211;&nbsp;</strong>This scope indicates that the dependency is only required while running the tests.<ul><li>e.g. unit test framework libraries.&nbsp;</li></ul></li></ul>
+
+
+
+<ul><li><strong>Provided &#8211;&nbsp;</strong>This means that the dependency would be provided by the container or the JDK at the runtime and we need not specify the jars explicitly with our archive.&nbsp;<ul><li>e.g. mule cloud hub&nbsp;provides various jars which need not be included with our application.&nbsp;</li><li>libraries stored in $MULE_HOME/conf/lib/opt</li></ul></li></ul>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a></span>
+  </div>
+</footer>
+</body>
+</html>

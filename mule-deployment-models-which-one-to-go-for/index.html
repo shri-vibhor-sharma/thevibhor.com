@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mule Deployment Models Which One to Go For — thevibhor.com</title>
+<meta name="description" content="Being an Architect, Product owner or a CXO of your organization having already purchased a brand new anypoint">
+<meta name="author" content="Vibhor Sharma">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span>September 18, 2020</span></p>
+  <h1>Mule Deployment Models Which One to Go For</h1>
+  <div class="meta">September 18, 2020 · By Vibhor Sharma</div>
+  <img class="featured" src="../assets/images/image.png" alt="Mule Deployment Models Which One to Go For">
+  <div class="content">
+<p>Being an Architect, Product owner or a CXO of your organization having already purchased a brand new anypoint platform subscription or planning to get one based on evaluation of the platform and now In dilemma which subscription model to go for ?</p>
+
+
+
+<p>This article will help you to provide a 1000ft overview of various deployment options available in anypoint platform and which one to go for.&nbsp;</p>
+
+
+
+<p>To Start our journey, Mulesoft offers various deployment options, to name some-</p>
+
+
+
+<ul><li>Cloudhub Deployment</li><li>Bare Metal Installations</li><li>Runtime Fabrics </li><li>Private cloud Edition</li></ul>
+
+
+
+<p>That&#8217;s confusing right?</p>
+
+
+
+<p>To help you guide through the process of choosing the best one for you here is little background on how the anypoint platform is divided, it will help you analyse and align with your requirements &#8211;</p>
+
+
+
+<figure><img loading="lazy" decoding="async" width="873" height="428" src="../assets/images/image.png" alt="" class="wp-image-65" srcset="../assets/images/image.png 873w, ../assets/images/image-300x147.png 300w, ../assets/images/image-768x377.png 768w" sizes="(max-width: 873px) 100vw, 873px" /><figcaption>Anypoint Platform</figcaption></figure>
+
+
+
+<ol><li><strong>Runtime plane</strong> &#8211; This is the part of the platform where the application server/ mule runtime engine is physically hosted. This would contain your mule application packages, connectors etc. </li></ol>
+
+
+
+<p>Talking about deployment the runtime plane can be hosted &#8211; </p>
+
+
+
+<ul><li><em><strong>iPaaS </strong></em>&#8211; Cloudhub, Its mulesoft&#8217;s AWS Hosted, multi tenant managed solution for application deployment, it provides features such as 99.99% uptime, scalability, availability and relibility. Of course you wont have visibility on the VMs where your applications are actually hosted but in pretty much cases it will be secure. Also you would have flexibility of deploying your applications to specific regions e.g. UK, EU, US Etc to comply with the laws of your organization. </li></ul>
+
+
+
+<ul><li><strong><em>Self Managed</em></strong> &#8211; If your organization is concerned about where physically your applications are hosted and have compliance laws govern the application interaction, then you should go for hosting your own mulesoft instances. There are a variety of options available to choose from- <ul><li><a href="https://docs.mulesoft.com/mule-runtime/4.3/mule-deployment-model" target="_blank" rel="noreferrer noopener">Bare Metal Standalone on prem installation </a></li><li><a href="https://docs.mulesoft.com/runtime-fabric/latest/architecture" target="_blank" rel="noreferrer noopener">Run time Fabric on prem/cloud</a></li><li>Standalone Installation on SaaS like AWS, Azure, Oracle Cloud etc. </li><li><a href="https://docs.mulesoft.com/anypoint-platform-pcf/1.6/" target="_blank" rel="noreferrer noopener">PCF</a></li></ul></li></ul>
+
+
+
+<ol><li><strong>Control Plane</strong> &#8211; Its the part of platform where the actual brain/ control panel sits. Some of the tools available in runtime plane are Design center, runtime manager, anypoint monitoring, API manager and Administrator Control panel.  Control plane can be hosted on below models &#8211; <ul><li><strong>US or EU Control Plane (multi-tenant)</strong> &#8211; all of the above application are hosted in the US or the EU region, be careful while choosing the control plane as your country GDPR laws might affect where you can store the data. </li><li><strong>GOV Cloud</strong></li><li><strong>Private Cloud Edition &#8211; </strong>&nbsp;This is basically single-tenant version of mulesoft which offers full control of your data within your own data centers.&nbsp;Using&nbsp;<a href="https://docs.mulesoft.com/private-cloud/latest/">Private Cloud Edition</a>,we would be able to maintain control over data storage and processing of data. The control plane appliance can be installed onto your own data centers, such as on-prem or Azure or AWS. Private Cloud Edition leverages Docker and&nbsp;<a href="https://docs.mulesoft.com/private-cloud/latest/https://www.mulesoft.com/resources/api/kubernetes-container-orchestration" target="_blank" rel="noreferrer noopener">Kubernetes</a>&nbsp;technologies to provide built-in high availability and scalability.</li></ul></li></ol>
+
+
+
+<figure><table><tbody><tr><td><strong>USECASE</strong></td><td><strong>DESCRIPTION</strong></td><td><strong>SOLUTION</strong></td></tr><tr><td>Need Managed SaaS solution to Develop and host the applications. </td><td>Dont have wider IT presence in my organization to manage the the integration platform and need an agile solution to quickly build and deploy</td><td>Go for Anypoint Platform <a href="https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cloud-based-integration" target="_blank" rel="noreferrer noopener">Cloudhub </a>Edition</td></tr><tr><td>Have Strict compliance laws on data processing within own data centers. </td><td>Organizations in industries such as banks, insurance corps, healthcare have scenarios where they want to more tightly manage their data. </td><td>Anypoint Platform Private Cloud Edition/ PCF</td></tr><tr><td>Have both Cloud and on-prem applications to integration + Reduce IT Expenditure</td><td>There may be scenario where an org have both cloud and on-prem applications to be integrated at the same time they want to reduce management overhead of on-prem servers and keep transactions seperate at the same time connected between cloud and on prem data</td><td>Hybrid approach (On-prem + Cloudhub)</td></tr><tr><td>High Scalable, customizable on-prem solution</td><td>if your org runs completely on-premise and is looking for an integration solution highly scalable and customizable </td><td>Anypoint Runtime Fabric (RTF)</td></tr><tr><td>All my Apps already in SaaS<br></td><td>As a modern organization we have moved away from on-prem and have all of our applications in AWS or Azure etc and we have a requirement of an Integration + API management tool to cater to our integration requirements</td><td>Go for Cloudhub if you want to reduce the IT management cost. Go for Standalone installation if you need more customization/ single tenant is the requirement.</td></tr><tr><td>Have restrictions on Data processing</td><td>Organization have restrictions on data processing like processing within the country, gdpr rules etc.</td><td>go for government cloud, private cloud edition based on case</td></tr></tbody></table></figure>
+
+
+
+<p>Trade-off &#8211; </p>
+
+
+
+<figure><table><tbody><tr><td><strong>Edition</strong></td><td><strong>Up&#8217;s</strong></td><td><strong>Down&#8217;s</strong></td></tr><tr><td>Cloudhub</td><td>Fully Managed solution, >99% uptime guranteed, reduced IT management effort</td><td>Hosted on Shared AWS Tenant</td></tr><tr><td>Cloudhub + On-Prem</td><td>Best of both Worlds, Seamless integration, natural abstraction between runtimes etc</td><td>Little Difficult to manage the link and would require dedicated team for on-prem maintainence.  </td></tr><tr><td>Private Cloud</td><td>Highly Secure, Compliant with Gov, GDPR and some country specific laws. Full control on the data and applications</td><td>Cost*, Limited Features*</td></tr><tr><td></td><td></td><td></td></tr></tbody></table></figure>
+
+
+
+<p class="has-text-align-justify wp-block-paragraph">*conditions apply</p>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a></span>
+  </div>
+</footer>
+</body>
+</html>
