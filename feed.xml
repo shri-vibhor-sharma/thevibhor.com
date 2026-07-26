@@ -7,18 +7,18 @@
     <language>en-gb</language>
     <atom:link href="https://thevibhor.com/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Types of RAG Explained: Naive, Advanced, Agentic &amp; GraphRAG</title>
+      <title>Types of RAG with Architecture &amp; Implementation Examples</title>
       <link>https://thevibhor.com/types-of-rag-retrieval-augmented-generation/</link>
       <guid isPermaLink="true">https://thevibhor.com/types-of-rag-retrieval-augmented-generation/</guid>
       <pubDate>Sat, 26 Jul 2026 00:00:00 GMT</pubDate>
-      <description>A practical guide to the main types of retrieval-augmented generation — and how to choose the right pattern for enterprise AI.</description>
+      <description>Naive to GraphRAG — each pattern with a shared enterprise scenario, solution architecture, and sample implementation.</description>
     </item>
     <item>
-      <title>The Role of a Solution Engineer / Sales Engineer</title>
+      <title>Sales Engineer, Solution Engineer, Pre-Sales Architect — Same Role</title>
       <link>https://thevibhor.com/role-of-a-solution-engineer-sales-engineer/</link>
       <guid isPermaLink="true">https://thevibhor.com/role-of-a-solution-engineer-sales-engineer/</guid>
       <pubDate>Sat, 26 Jul 2026 00:00:00 GMT</pubDate>
-      <description>What SEs actually own in enterprise deals — problem clarity, proof, narrative, and the courage to qualify out.</description>
+      <description>Stop debating titles. SE, Sales Engineer, Solutions Consultant, and Pre-Sales Architect are the same craft.</description>
     </item>
     <item>
       <title>Technical Discovery for Solution Engineers</title>

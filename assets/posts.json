@@ -1,17 +1,17 @@
 [
   {
     "slug": "types-of-rag-retrieval-augmented-generation",
-    "title": "Types of RAG Explained: Naive, Advanced, Agentic & GraphRAG",
+    "title": "Types of RAG with Architecture & Implementation Examples",
     "tags": ["ai", "apis", "rag"],
     "date": "2026-07-26",
-    "excerpt": "A practical guide to the main types of retrieval-augmented generation."
+    "excerpt": "Each RAG pattern with architecture and sample implementation."
   },
   {
     "slug": "role-of-a-solution-engineer-sales-engineer",
-    "title": "The Role of a Solution Engineer / Sales Engineer",
+    "title": "Sales Engineer, Solution Engineer, Pre-Sales Architect — Same Role",
     "tags": ["career", "strategy"],
     "date": "2026-07-26",
-    "excerpt": "What SEs actually own in enterprise deals."
+    "excerpt": "SE titles are badges — the craft is the same."
   },
   {
     "slug": "technical-discovery-for-solution-engineers",
