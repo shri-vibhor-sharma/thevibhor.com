@@ -541,10 +541,20 @@ main.page {
   margin: 36px 0 8px;
 }
 
+.about-intro--wide {
+  grid-template-columns: minmax(260px, 380px) 1fr;
+}
+
 .about-photo {
   width: 100%;
   border-radius: 8px;
   box-shadow: 0 20px 50px rgba(14, 21, 36, 0.14);
+}
+
+.about-photo--speak {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 .about-identity h1 { margin-bottom: 8px; }
@@ -1356,12 +1366,17 @@ html.cmdk-open { overflow: hidden; }
 
   .hero { min-height: min(88vh, 680px); }
 
-  .about-intro {
+  .about-intro,
+  .about-intro--wide {
     grid-template-columns: 1fr;
   }
 
   .about-photo {
     max-width: 240px;
+  }
+
+  .about-photo--speak {
+    max-width: 100%;
   }
 
   .timeline li {

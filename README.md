@@ -1,6 +1,6 @@
 # thevibhor.com
 
-Personal site and writing by **Vibhor Sharma** — Principal Solutions Engineer at Salesforce (MuleSoft, APIs, enterprise AI).
+Personal site and writing by **Vibhor Sharma** — Solution Advisor / AI Advisor for digital transformation (APIs, integration, enterprise AI).
 
 Published with [GitHub Pages](https://pages.github.com/).
 
