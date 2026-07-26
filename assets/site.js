@@ -382,6 +382,7 @@
     const pages = [
       { type: "page", title: "Home / Articles", href: rootBase, hint: "Browse writing" },
       { type: "page", title: "About", href: `${rootBase}about-us/`, hint: "Vibhor Sharma" },
+      { type: "page", title: "Book on Topmate", href: "https://topmate.io/vibhor_s", hint: "Paid 1:1 mentorship" },
       { type: "page", title: "Contact", href: `${rootBase}contact-us/`, hint: "Get in touch" },
       { type: "page", title: "RSS Feed", href: `${rootBase}feed.xml`, hint: "Subscribe" },
       ...posts.map((p) => ({
@@ -512,11 +513,40 @@
     });
   }
 
+  function initTopmateFloater() {
+    if (document.querySelector(".topmate-float")) return;
+    const key = "topmate-float-dismissed";
+    try {
+      if (localStorage.getItem(key) === "1") return;
+    } catch (_) {}
+
+    const el = document.createElement("aside");
+    el.className = "topmate-float";
+    el.setAttribute("aria-label", "Book a session");
+    el.innerHTML = `
+      <button type="button" class="topmate-float__close" aria-label="Dismiss">&times;</button>
+      <p class="topmate-float__eyebrow">Mentorship</p>
+      <p class="topmate-float__text">Want career or interview help? Book a paid 1:1 on Topmate.</p>
+      <a class="topmate-float__cta" href="https://topmate.io/vibhor_s" rel="noopener" target="_blank">Book on Topmate</a>
+    `;
+    document.body.appendChild(el);
+    requestAnimationFrame(() => el.classList.add("is-visible"));
+
+    el.querySelector(".topmate-float__close").addEventListener("click", () => {
+      el.classList.remove("is-visible");
+      try {
+        localStorage.setItem(key, "1");
+      } catch (_) {}
+      setTimeout(() => el.remove(), 280);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", async () => {
     initSearch();
     initReveal();
     initArticleExtras();
     initNavEnhance();
+    initTopmateFloater();
     const posts = await loadPosts();
     initCommandPalette(posts);
   });
