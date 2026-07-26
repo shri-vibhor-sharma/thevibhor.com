@@ -535,18 +535,14 @@ main.page {
 /* —— About —— */
 .about-intro {
   display: grid;
-  grid-template-columns: minmax(180px, 240px) 1fr;
-  gap: 36px 48px;
+  grid-template-columns: 1fr;
+  gap: 28px;
   align-items: start;
-  margin: 36px 0 8px;
+  margin: 28px 0 8px;
 }
 
 .about-intro--wide {
   grid-template-columns: minmax(260px, 380px) 1fr;
-}
-
-.about-intro {
-  grid-template-columns: 1fr;
 }
 
 .about-banner {
