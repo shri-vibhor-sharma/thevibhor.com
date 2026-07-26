@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "types-of-rag-retrieval-augmented-generation",
+    "title": "Types of RAG Explained: Naive, Advanced, Agentic & GraphRAG",
+    "tags": ["ai", "apis", "rag"],
+    "date": "2026-07-26",
+    "excerpt": "A practical guide to the main types of retrieval-augmented generation."
+  },
+  {
+    "slug": "role-of-a-solution-engineer-sales-engineer",
+    "title": "The Role of a Solution Engineer / Sales Engineer",
+    "tags": ["career", "strategy"],
+    "date": "2026-07-26",
+    "excerpt": "What SEs actually own in enterprise deals."
+  },
+  {
+    "slug": "technical-discovery-for-solution-engineers",
+    "title": "Technical Discovery for Solution Engineers",
+    "tags": ["career", "strategy"],
+    "date": "2026-07-26",
+    "excerpt": "A five-layer discovery framework for winnable architectures."
+  },
+  {
+    "slug": "there-is-no-ai-without-api",
+    "title": "There Is No AI Without API?",
+    "tags": ["ai", "apis"],
+    "date": "2025-06-12",
+    "excerpt": "Why generative intelligence only scales with APIs and integration."
+  },
+  {
+    "slug": "comparing-leading-application-integration-and-api-platforms-a-closer-look-at-mulesoft-workato-boomi-and-azure-integration-services",
+    "title": "Comparing Leading Application Integration and API Platforms",
+    "tags": ["strategy", "platforms", "mulesoft"],
+    "date": "2024-07-22",
+    "excerpt": "MuleSoft, Workato, Boomi, and Azure Integration Services."
+  },
+  {
+    "slug": "integration-consultants-role",
+    "title": "The Vital Role of Integration Consultants",
+    "tags": ["strategy"],
+    "date": "2024-02-25",
+    "excerpt": "How consultants guide technology choices and delivery outcomes."
+  },
+  {
+    "slug": "why-integrations-become-bottleneck-for-all-organisations",
+    "title": "Why Integrations Become a Bottleneck",
+    "tags": ["strategy"],
+    "date": "2023-04-28",
+    "excerpt": "What turns integration into the constraint every organisation feels."
+  },
+  {
+    "slug": "monitoring-mule-on-prem-apps-from-anypoint-platform",
+    "title": "Monitoring Mule On-Prem Apps from Anypoint Platform",
+    "tags": ["mulesoft"],
+    "date": "2021-03-26",
+    "excerpt": "Anypoint Monitoring for on-prem Mule applications."
+  },
+  {
+    "slug": "mule-deployment-models-which-one-to-go-for",
+    "title": "Mule Deployment Models: Which One to Go For",
+    "tags": ["mulesoft", "strategy"],
+    "date": "2020-09-18",
+    "excerpt": "Choosing the right Anypoint deployment model."
+  },
+  {
+    "slug": "custom-serializers-in-mule-4",
+    "title": "Custom Serializers in Mule 4",
+    "tags": ["mulesoft"],
+    "date": "2020-03-05",
+    "excerpt": "Custom serialization beyond default Java serialization."
+  },
+  {
+    "slug": "policy-management-with-anypoint-platform",
+    "title": "Policy Management With Anypoint Platform",
+    "tags": ["apis", "mulesoft"],
+    "date": "2019-08-07",
+    "excerpt": "Governing APIs with Anypoint policies."
+  },
+  {
+    "slug": "working-with-runtime-fabric",
+    "title": "Working with Runtime Fabric",
+    "tags": ["mulesoft"],
+    "date": "2019-07-25",
+    "excerpt": "Basics of MuleSoft Runtime Fabric operations."
+  },
+  {
+    "slug": "enable-https-on-mule-4-apps",
+    "title": "Enable HTTPS on Mule 4 Apps",
+    "tags": ["mulesoft"],
+    "date": "2019-07-24",
+    "excerpt": "SSL/TLS setup for Mule 4 applications."
+  },
+  {
+    "slug": "maven-scopes-for-mule",
+    "title": "Maven Scopes for Mule",
+    "tags": ["mulesoft"],
+    "date": "2019-07-24",
+    "excerpt": "Dependency scopes for lean Mule archives."
+  }
+]
