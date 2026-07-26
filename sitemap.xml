@@ -16,6 +16,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://thevibhor.com/types-of-rag-retrieval-augmented-generation/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://thevibhor.com/role-of-a-solution-engineer-sales-engineer/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thevibhor.com/technical-discovery-for-solution-engineers/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://thevibhor.com/there-is-no-ai-without-api/</loc>
     <lastmod>2025-06-12</lastmod>
     <changefreq>yearly</changefreq>
@@ -28,20 +46,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thevibhor.com/demystifying-ai-from-sci-fi-fantasy-to-everyday-reality/</loc>
-    <lastmod>2024-02-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://thevibhor.com/integration-consultants-role/</loc>
     <lastmod>2024-02-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thevibhor.com/harness-power-of-generative-ai-the-importance-of-integration-and-api-management-for-enterprises/</loc>
-    <lastmod>2023-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -49,13 +55,13 @@
     <loc>https://thevibhor.com/why-integrations-become-bottleneck-for-all-organisations/</loc>
     <lastmod>2023-04-28</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thevibhor.com/monitoring-mule-on-prem-apps-from-anypoint-platform/</loc>
     <lastmod>2021-03-26</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://thevibhor.com/mule-deployment-models-which-one-to-go-for/</loc>
@@ -67,7 +73,7 @@
     <loc>https://thevibhor.com/custom-serializers-in-mule-4/</loc>
     <lastmod>2020-03-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://thevibhor.com/policy-management-with-anypoint-platform/</loc>
@@ -85,18 +91,17 @@
     <loc>https://thevibhor.com/enable-https-on-mule-4-apps/</loc>
     <lastmod>2019-07-24</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://thevibhor.com/raml-overlays/</loc>
-    <lastmod>2019-07-24</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://thevibhor.com/maven-scopes-for-mule/</loc>
     <lastmod>2019-07-24</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thevibhor.com/feed.xml</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

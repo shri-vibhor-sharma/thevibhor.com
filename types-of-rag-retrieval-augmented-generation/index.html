@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Types of RAG Explained: Naive, Advanced, Agentic &amp; GraphRAG — thevibhor.com</title>
+<meta name="description" content="A practical guide to the main types of RAG — Naive, Advanced, Modular, Agentic, and GraphRAG — and how to choose the right pattern for enterprise AI.">
+<meta name="author" content="Vibhor Sharma">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="keywords" content="types of RAG, retrieval augmented generation, naive RAG, advanced RAG, agentic RAG, GraphRAG, enterprise AI">
+<link rel="canonical" href="https://thevibhor.com/types-of-rag-retrieval-augmented-generation/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="thevibhor.com">
+<meta property="og:title" content="Types of RAG Explained: Naive, Advanced, Agentic &amp; GraphRAG">
+<meta property="og:description" content="A practical guide to the main types of RAG and how to choose the right pattern for enterprise AI.">
+<meta property="og:url" content="https://thevibhor.com/types-of-rag-retrieval-augmented-generation/">
+<meta property="og:image" content="https://thevibhor.com/assets/images/types-of-rag-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Types of RAG Explained: Naive, Advanced, Agentic &amp; GraphRAG">
+<meta name="twitter:description" content="A practical guide to the main types of RAG and how to choose the right pattern for enterprise AI.">
+<meta name="twitter:image" content="https://thevibhor.com/assets/images/types-of-rag-hero.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Types of RAG Explained: Naive, Advanced, Agentic & GraphRAG",
+  "description": "A practical guide to the main types of RAG and how to choose the right pattern for enterprise AI.",
+  "url": "https://thevibhor.com/types-of-rag-retrieval-augmented-generation/",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {"@type": "Person", "name": "Vibhor Sharma", "url": "https://thevibhor.com/about-us/"},
+  "publisher": {"@type": "Person", "name": "Vibhor Sharma", "url": "https://thevibhor.com"},
+  "mainEntityOfPage": "https://thevibhor.com/types-of-rag-retrieval-augmented-generation/",
+  "image": "https://thevibhor.com/assets/images/types-of-rag-hero.png"
+}
+</script>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" type="application/rss+xml" title="thevibhor.com RSS" href="../feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span class="tag">AI</span> <span class="tag">RAG</span> <span>July 26, 2026</span></p>
+  <h1>Types of RAG Explained: Naive, Advanced, Agentic &amp; GraphRAG</h1>
+  <div class="meta">July 26, 2026 · By Vibhor Sharma</div>
+  <img class="featured" src="../assets/images/types-of-rag-hero.png" alt="Abstract illustration of documents flowing into a knowledge network for retrieval-augmented generation" width="1600" height="900">
+  <div class="content">
+<p>If your team is building AI that must answer from <em>your</em> data — policies, product docs, CRM history, case notes — you will eventually land on <strong>Retrieval-Augmented Generation (RAG)</strong>.</p>
+<p>RAG is simple in spirit: retrieve relevant context, then ask a model to generate an answer grounded in that context. In practice, “RAG” is not one architecture. It is a family of patterns — and choosing the wrong type is how demos die in production.</p>
+<p>This guide walks through the main <strong>types of RAG</strong>, when each one earns its complexity, and how integration-minded solution engineers should think about them.</p>
+
+<h2>Why RAG exists</h2>
+<p>Large language models are powerful, but they do not magically know your enterprise truth. They can hallucinate, miss recent changes, and invent citations with confidence.</p>
+<p>RAG reduces that gap by giving the model a shortlist of evidence before it speaks. Done well, it improves:</p>
+<ul>
+<li><strong>Grounding</strong> — answers tied to source material</li>
+<li><strong>Freshness</strong> — knowledge updates without full retraining</li>
+<li><strong>Control</strong> — you decide what the model is allowed to see</li>
+<li><strong>Auditability</strong> — you can show which chunks influenced the answer</li>
+</ul>
+<p>Done poorly, RAG becomes an expensive search box that still fabricates answers.</p>
+
+<figure>
+  <img src="../assets/images/rag-types-diagram.png" alt="Diagram-style illustration of layered RAG patterns from retrieval to agent loops" width="1600" height="900" loading="lazy">
+  <figcaption>RAG evolves from simple retrieve-and-generate loops into modular, graph-aware, and agentic systems.</figcaption>
+</figure>
+
+<h2>1. Naive RAG (the starting point)</h2>
+<p><strong>Naive RAG</strong> is the classic pipeline:</p>
+<ol>
+<li>Chunk documents</li>
+<li>Embed chunks into a vector store</li>
+<li>Retrieve top‑k similar chunks for a user question</li>
+<li>Stuff them into a prompt</li>
+<li>Generate an answer</li>
+</ol>
+<p>It is fast to prototype and perfect for proving the idea. It struggles when questions require multi-hop reasoning, when chunks are poorly cut, or when “similar” text is not actually relevant.</p>
+<p><strong>Use it when:</strong> you need an internal FAQ, a docs assistant, or a proof of concept with a clean corpus.</p>
+<p><strong>Watch out for:</strong> noisy retrieval, duplicated context, weak citations, and brittle chunking.</p>
+
+<h2>2. Advanced RAG (where most enterprise teams should start)</h2>
+<p><strong>Advanced RAG</strong> keeps the same backbone but improves quality at every stage:</p>
+<ul>
+<li><strong>Better ingestion</strong> — document cleaning, metadata, hierarchy-aware chunking</li>
+<li><strong>Query transformation</strong> — rewrite, expand, or decompose the user question</li>
+<li><strong>Hybrid retrieval</strong> — vectors + keyword/BM25, not vectors alone</li>
+<li><strong>Reranking</strong> — a second model sorts candidates by true relevance</li>
+<li><strong>Compression</strong> — keep only the sentences that matter before generation</li>
+<li><strong>Citation discipline</strong> — force answers to point back to sources</li>
+</ul>
+<p>This is the pattern I recommend for most customer-facing copilots and knowledge assistants. You get measurable lift without jumping straight into multi-agent complexity.</p>
+<p><strong>Use it when:</strong> answer quality, trust, and evaluation matter more than demo speed.</p>
+
+<h2>3. Modular RAG (compose the pipeline like an integration flow)</h2>
+<p><strong>Modular RAG</strong> treats retrieval and generation as swappable components: routers, retrievers, rerankers, memory modules, and response builders.</p>
+<p>If you have lived in integration architecture, this will feel familiar. You are designing a composable flow with clear contracts between stages — not a single opaque black box.</p>
+<p>Examples of modules:</p>
+<ul>
+<li>A router that sends “policy” questions to one index and “product” questions to another</li>
+<li>A metadata filter that scopes retrieval by region, product line, or ACL</li>
+<li>A verifier step that checks whether the draft answer is supported by retrieved evidence</li>
+</ul>
+<p><strong>Use it when:</strong> one corpus/one pipeline is not enough, and you need governance by domain.</p>
+
+<h2>4. Agentic RAG (retrieve as a tool, not a one-shot step)</h2>
+<p><strong>Agentic RAG</strong> lets the model (or an orchestrator) decide <em>when</em> and <em>how</em> to retrieve. Instead of one retrieve → generate pass, the system can:</p>
+<ul>
+<li>Ask clarifying questions</li>
+<li>Search multiple stores</li>
+<li>Call APIs for live data</li>
+<li>Retry with a better query</li>
+<li>Invoke tools before answering</li>
+</ul>
+<p>This is powerful for complex workflows — and dangerous if you skip evaluation, latency budgets, and permission boundaries.</p>
+<p><strong>Use it when:</strong> the task is multi-step (investigate → gather → decide → act), not a single Q&amp;A.</p>
+<p><strong>Watch out for:</strong> runaway tool loops, higher cost, and weaker predictability.</p>
+
+<h2>5. GraphRAG (structure over similarity alone)</h2>
+<p><strong>GraphRAG</strong> combines retrieval with a knowledge graph: entities, relationships, and communities of connected facts. Instead of only asking “which chunks look similar?”, you can ask “which entities and relationships answer this?”</p>
+<p>It shines when the question depends on connections — ownership, dependencies, hierarchies, incident timelines — not just topical similarity.</p>
+<p><strong>Use it when:</strong> your domain is relationship-heavy (org structures, product hierarchies, regulatory maps, system landscapes).</p>
+<p><strong>Trade-off:</strong> graph construction and maintenance are real work. Do not adopt GraphRAG because it sounds advanced. Adopt it because similarity search keeps missing the relationships humans already know.</p>
+
+<h2>6. Related patterns you will hear in the wild</h2>
+<ul>
+<li><strong>Self-RAG / corrective RAG</strong> — the system critiques its own retrieval and regenerates when evidence is weak</li>
+<li><strong>HyDE</strong> — generate a hypothetical answer first, then retrieve using that as the query</li>
+<li><strong>Multimodal RAG</strong> — retrieve from PDFs, images, tables, and transcripts, not text alone</li>
+<li><strong>Memory-augmented RAG</strong> — combine long-term user/session memory with document retrieval</li>
+</ul>
+<p>These are usually enhancements layered onto Advanced or Modular RAG, not total replacements.</p>
+
+<h2>How to choose the right type of RAG</h2>
+<table>
+  <thead>
+    <tr>
+      <th>If your goal is…</th>
+      <th>Start with…</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Prove value quickly on clean docs</td>
+      <td>Naive RAG</td>
+    </tr>
+    <tr>
+      <td>Production Q&amp;A with trust and citations</td>
+      <td>Advanced RAG</td>
+    </tr>
+    <tr>
+      <td>Multiple domains, policies, and access rules</td>
+      <td>Modular RAG</td>
+    </tr>
+    <tr>
+      <td>Multi-step investigation and tool use</td>
+      <td>Agentic RAG</td>
+    </tr>
+    <tr>
+      <td>Answers that depend on relationships</td>
+      <td>GraphRAG</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>What solution engineers should pressure-test</h2>
+<p>Architecture slides are easy. Production is not. Before you recommend a RAG type in a deal or design review, ask:</p>
+<ol>
+<li><strong>What is the source of truth?</strong> Docs, tickets, CRM, data lake, all of the above?</li>
+<li><strong>Who is allowed to see what?</strong> Retrieval without authorization is a security incident waiting to happen.</li>
+<li><strong>How will you measure quality?</strong> Groundedness, citation accuracy, latency, deflection rate.</li>
+<li><strong>What happens when retrieval fails?</strong> Refuse, escalate to a human, or call a live API?</li>
+<li><strong>How does knowledge stay fresh?</strong> Ingestion pipelines and ownership matter as much as the model.</li>
+</ol>
+<p>This is why RAG is not only an AI topic. It is an <a href="../there-is-no-ai-without-api/">integration and API</a> topic: connectors, governance, identity, and operational ownership decide whether the assistant is useful or ornamental.</p>
+
+<h2>A practical adoption path</h2>
+<ol>
+<li>Ship a <strong>Naive RAG</strong> prototype on one trusted corpus.</li>
+<li>Add hybrid search, reranking, metadata filters, and evaluation → <strong>Advanced RAG</strong>.</li>
+<li>Split by domain and permissions → <strong>Modular RAG</strong>.</li>
+<li>Only then introduce agents or graphs where the use case demands them.</li>
+</ol>
+<p>Complexity should follow failure modes — not LinkedIn trends.</p>
+
+<h2>Final take</h2>
+<p>The question is no longer “Should we use RAG?” For enterprise knowledge work, the answer is usually yes. The better question is: <strong>which type of RAG matches the job, the data, and the risk?</strong></p>
+<p>Start simple. Measure relentlessly. Graduate to advanced, modular, agentic, or graph patterns only when the simpler system shows you exactly where it breaks.</p>
+<p>That is how RAG moves from a demo to a durable capability.</p>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a> · <a href="../feed.xml">RSS</a></span>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

@@ -19,6 +19,7 @@
 <meta name="twitter:description" content="Writing by Vibhor Sharma on enterprise integration, APIs, MuleSoft, and generative AI.">
 <meta name="twitter:image" content="https://thevibhor.com/assets/images/VIBHOR-1024x929.png">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="alternate" type="application/rss+xml" title="thevibhor.com RSS" href="feed.xml">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -78,8 +79,52 @@
     <h2>Articles</h2>
     <p>Practical writing on integration platforms, API management, and bringing generative AI into real systems.</p>
   </div>
-  <ul class="post-list">
-    <li class="post-item">
+
+  <div class="toolbar">
+    <div class="search-wrap">
+      <label class="visually-hidden" for="article-search">Search articles</label>
+      <input id="article-search" type="search" data-search placeholder="Search articles…" autocomplete="off" enterkeyhint="search">
+      <span class="search-hint" aria-hidden="true">/</span>
+    </div>
+    <div class="filter-row" role="group" aria-label="Filter by topic">
+      <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="filter-chip" data-filter="ai" aria-pressed="false">AI</button>
+      <button type="button" class="filter-chip" data-filter="apis" aria-pressed="false">APIs</button>
+      <button type="button" class="filter-chip" data-filter="mulesoft" aria-pressed="false">MuleSoft</button>
+      <button type="button" class="filter-chip" data-filter="strategy" aria-pressed="false">Strategy</button>
+      <button type="button" class="filter-chip" data-filter="career" aria-pressed="false">Career</button>
+    </div>
+    <p class="results-meta"><span data-count>14 articles</span> · Press <kbd>/</kbd> to search</p>
+  </div>
+
+  <p class="empty-state" data-empty hidden>No articles match that search. Try another topic or clear the filter.</p>
+
+  <ul class="post-list" data-post-list>
+    <li class="post-item" data-tags="ai apis">
+      <time class="post-date" datetime="2026-07-26">Jul 2026</time>
+      <div>
+        <a class="post-title" href="types-of-rag-retrieval-augmented-generation/">Types of RAG Explained: Naive, Advanced, Agentic &amp; GraphRAG</a>
+        <p class="post-meta"><span class="tag">AI</span> <span class="tag">RAG</span></p>
+        <p class="post-excerpt">A practical guide to the main types of retrieval-augmented generation — and how to choose the right pattern for enterprise AI.</p>
+      </div>
+    </li>
+    <li class="post-item" data-tags="career strategy">
+      <time class="post-date" datetime="2026-07-26">Jul 2026</time>
+      <div>
+        <a class="post-title" href="role-of-a-solution-engineer-sales-engineer/">The Role of a Solution Engineer / Sales Engineer</a>
+        <p class="post-meta"><span class="tag">Career</span> <span class="tag">Pre-Sales</span></p>
+        <p class="post-excerpt">What SEs actually own in enterprise deals — problem clarity, proof, narrative, and the courage to qualify out.</p>
+      </div>
+    </li>
+    <li class="post-item" data-tags="career strategy">
+      <time class="post-date" datetime="2026-07-26">Jul 2026</time>
+      <div>
+        <a class="post-title" href="technical-discovery-for-solution-engineers/">Technical Discovery for Solution Engineers</a>
+        <p class="post-meta"><span class="tag">Pre-Sales</span> <span class="tag">Discovery</span></p>
+        <p class="post-excerpt">A five-layer discovery framework, agendas, artefacts, and anti-patterns that turn vague asks into winnable architectures.</p>
+      </div>
+    </li>
+    <li class="post-item" data-tags="ai apis">
       <time class="post-date" datetime="2025-06-12">Jun 2025</time>
       <div>
         <a class="post-title" href="there-is-no-ai-without-api/">There Is No AI Without API?</a>
@@ -87,7 +132,7 @@
         <p class="post-excerpt">Why generative intelligence only scales when APIs and integration are treated as first-class foundations.</p>
       </div>
     </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="strategy platforms mulesoft">
       <time class="post-date" datetime="2024-07-22">Jul 2024</time>
       <div>
         <a class="post-title" href="comparing-leading-application-integration-and-api-platforms-a-closer-look-at-mulesoft-workato-boomi-and-azure-integration-services/">Comparing Leading Application Integration and API Platforms</a>
@@ -95,15 +140,7 @@
         <p class="post-excerpt">A closer look at MuleSoft, Workato, Boomi, and Azure Integration Services.</p>
       </div>
     </li>
-    <li class="post-item">
-      <time class="post-date" datetime="2024-02-25">Feb 2024</time>
-      <div>
-        <a class="post-title" href="demystifying-ai-from-sci-fi-fantasy-to-everyday-reality/">Demystifying AI: From Sci-Fi Fantasy to Everyday Reality</a>
-        <p class="post-meta"><span class="tag">AI</span></p>
-        <p class="post-excerpt">How artificial intelligence moved from futuristic fiction into the systems we use every day.</p>
-      </div>
-    </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="strategy">
       <time class="post-date" datetime="2024-02-25">Feb 2024</time>
       <div>
         <a class="post-title" href="integration-consultants-role/">The Vital Role of Integration Consultants</a>
@@ -111,15 +148,7 @@
         <p class="post-excerpt">How integration consultants guide technology choices, vendor decisions, and lasting delivery outcomes.</p>
       </div>
     </li>
-    <li class="post-item">
-      <time class="post-date" datetime="2023-10-08">Oct 2023</time>
-      <div>
-        <a class="post-title" href="harness-power-of-generative-ai-the-importance-of-integration-and-api-management-for-enterprises/">Harness Power of Generative AI</a>
-        <p class="post-meta"><span class="tag">AI</span> <span class="tag">API Management</span></p>
-        <p class="post-excerpt">Why integration and API management determine whether enterprise GenAI initiatives create real value.</p>
-      </div>
-    </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="strategy">
       <time class="post-date" datetime="2023-04-28">Apr 2023</time>
       <div>
         <a class="post-title" href="why-integrations-become-bottleneck-for-all-organisations/">Why Integrations Become a Bottleneck</a>
@@ -127,7 +156,7 @@
         <p class="post-excerpt">What turns integration into the constraint every growing organisation eventually feels.</p>
       </div>
     </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="mulesoft">
       <time class="post-date" datetime="2021-03-26">Mar 2021</time>
       <div>
         <a class="post-title" href="monitoring-mule-on-prem-apps-from-anypoint-platform/">Monitoring Mule On-Prem Apps from Anypoint Platform</a>
@@ -135,7 +164,7 @@
         <p class="post-excerpt">Using Anypoint Monitoring for applications running on your own infrastructure.</p>
       </div>
     </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="mulesoft strategy">
       <time class="post-date" datetime="2020-09-18">Sep 2020</time>
       <div>
         <a class="post-title" href="mule-deployment-models-which-one-to-go-for/">Mule Deployment Models: Which One to Go For</a>
@@ -143,7 +172,7 @@
         <p class="post-excerpt">Choosing the right Anypoint deployment model as an architect, product owner, or executive.</p>
       </div>
     </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="mulesoft">
       <time class="post-date" datetime="2020-03-05">Mar 2020</time>
       <div>
         <a class="post-title" href="custom-serializers-in-mule-4/">Custom Serializers in Mule 4</a>
@@ -151,7 +180,7 @@
         <p class="post-excerpt">Going beyond default Java serialization when your Mule applications need custom handling.</p>
       </div>
     </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="apis mulesoft">
       <time class="post-date" datetime="2019-08-07">Aug 2019</time>
       <div>
         <a class="post-title" href="policy-management-with-anypoint-platform/">Policy Management With Anypoint Platform</a>
@@ -159,7 +188,7 @@
         <p class="post-excerpt">Governing APIs after you build them — administration, policies, and operational control.</p>
       </div>
     </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="mulesoft">
       <time class="post-date" datetime="2019-07-25">Jul 2019</time>
       <div>
         <a class="post-title" href="working-with-runtime-fabric/">Working with Runtime Fabric</a>
@@ -167,7 +196,7 @@
         <p class="post-excerpt">Basics of MuleSoft Runtime Fabric and how day-to-day operations fit together.</p>
       </div>
     </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="mulesoft">
       <time class="post-date" datetime="2019-07-24">Jul 2019</time>
       <div>
         <a class="post-title" href="enable-https-on-mule-4-apps/">Enable HTTPS on Mule 4 Apps</a>
@@ -175,15 +204,7 @@
         <p class="post-excerpt">Practical SSL/TLS setup so your Mule 4 APIs meet modern security expectations.</p>
       </div>
     </li>
-    <li class="post-item">
-      <time class="post-date" datetime="2019-07-24">Jul 2019</time>
-      <div>
-        <a class="post-title" href="raml-overlays/">RAML Overlays</a>
-        <p class="post-meta"><span class="tag">RAML</span></p>
-        <p class="post-excerpt">How overlays add or override documentation and annotations without rewriting the API definition.</p>
-      </div>
-    </li>
-    <li class="post-item">
+    <li class="post-item" data-tags="mulesoft">
       <time class="post-date" datetime="2019-07-24">Jul 2019</time>
       <div>
         <a class="post-title" href="maven-scopes-for-mule/">Maven Scopes for Mule</a>
@@ -197,8 +218,9 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
     <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
-    <span><a href="about-us/">About</a> · <a href="contact-us/">Contact</a> · <a href="https://www.linkedin.com/in/svibhors" rel="noopener">LinkedIn</a></span>
+    <span><a href="about-us/">About</a> · <a href="contact-us/">Contact</a> · <a href="feed.xml">RSS</a> · <a href="https://www.linkedin.com/in/svibhors" rel="noopener">LinkedIn</a></span>
   </div>
 </footer>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

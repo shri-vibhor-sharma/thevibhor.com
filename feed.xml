@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>thevibhor.com</title>
+    <link>https://thevibhor.com/</link>
+    <description>Writing by Vibhor Sharma on enterprise integration, APIs, MuleSoft, and generative AI.</description>
+    <language>en-gb</language>
+    <atom:link href="https://thevibhor.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Types of RAG Explained: Naive, Advanced, Agentic & GraphRAG</title>
+      <link>https://thevibhor.com/types-of-rag-retrieval-augmented-generation/</link>
+      <guid>https://thevibhor.com/types-of-rag-retrieval-augmented-generation/</guid>
+      <pubDate>Sat, 26 Jul 2026 00:00:00 GMT</pubDate>
+      <description>A practical guide to the main types of retrieval-augmented generation — and how to choose the right pattern for enterprise AI.</description>
+    </item>
+    <item>
+      <title>The Role of a Solution Engineer / Sales Engineer</title>
+      <link>https://thevibhor.com/role-of-a-solution-engineer-sales-engineer/</link>
+      <guid>https://thevibhor.com/role-of-a-solution-engineer-sales-engineer/</guid>
+      <pubDate>Sat, 26 Jul 2026 00:00:00 GMT</pubDate>
+      <description>What SEs actually own in enterprise deals — problem clarity, proof, narrative, and the courage to qualify out.</description>
+    </item>
+    <item>
+      <title>Technical Discovery for Solution Engineers</title>
+      <link>https://thevibhor.com/technical-discovery-for-solution-engineers/</link>
+      <guid>https://thevibhor.com/technical-discovery-for-solution-engineers/</guid>
+      <pubDate>Sat, 26 Jul 2026 00:00:00 GMT</pubDate>
+      <description>A five-layer discovery framework, agendas, artefacts, and anti-patterns that turn vague asks into winnable architectures.</description>
+    </item>
+    <item>
+      <title>There Is No AI Without API?</title>
+      <link>https://thevibhor.com/there-is-no-ai-without-api/</link>
+      <guid>https://thevibhor.com/there-is-no-ai-without-api/</guid>
+      <pubDate>Thu, 12 Jun 2025 00:00:00 GMT</pubDate>
+      <description>Why generative intelligence only scales when APIs and integration are treated as first-class foundations.</description>
+    </item>
+    <item>
+      <title>Comparing Leading Application Integration and API Platforms</title>
+      <link>https://thevibhor.com/comparing-leading-application-integration-and-api-platforms-a-closer-look-at-mulesoft-workato-boomi-and-azure-integration-services/</link>
+      <guid>https://thevibhor.com/comparing-leading-application-integration-and-api-platforms-a-closer-look-at-mulesoft-workato-boomi-and-azure-integration-services/</guid>
+      <pubDate>Mon, 22 Jul 2024 00:00:00 GMT</pubDate>
+      <description>A closer look at MuleSoft, Workato, Boomi, and Azure Integration Services.</description>
+    </item>
+    <item>
+      <title>The Vital Role of Integration Consultants</title>
+      <link>https://thevibhor.com/integration-consultants-role/</link>
+      <guid>https://thevibhor.com/integration-consultants-role/</guid>
+      <pubDate>Sun, 25 Feb 2024 00:00:00 GMT</pubDate>
+      <description>How integration consultants guide technology choices, vendor decisions, and lasting delivery outcomes.</description>
+    </item>
+    <item>
+      <title>Why Integrations Become a Bottleneck</title>
+      <link>https://thevibhor.com/why-integrations-become-bottleneck-for-all-organisations/</link>
+      <guid>https://thevibhor.com/why-integrations-become-bottleneck-for-all-organisations/</guid>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 GMT</pubDate>
+      <description>What turns integration into the constraint every growing organisation eventually feels.</description>
+    </item>
+    <item>
+      <title>Monitoring Mule On-Prem Apps from Anypoint Platform</title>
+      <link>https://thevibhor.com/monitoring-mule-on-prem-apps-from-anypoint-platform/</link>
+      <guid>https://thevibhor.com/monitoring-mule-on-prem-apps-from-anypoint-platform/</guid>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 GMT</pubDate>
+      <description>Using Anypoint Monitoring for applications running on your own infrastructure.</description>
+    </item>
+    <item>
+      <title>Mule Deployment Models: Which One to Go For</title>
+      <link>https://thevibhor.com/mule-deployment-models-which-one-to-go-for/</link>
+      <guid>https://thevibhor.com/mule-deployment-models-which-one-to-go-for/</guid>
+      <pubDate>Fri, 18 Sep 2020 00:00:00 GMT</pubDate>
+      <description>Choosing the right Anypoint deployment model as an architect, product owner, or executive.</description>
+    </item>
+    <item>
+      <title>Custom Serializers in Mule 4</title>
+      <link>https://thevibhor.com/custom-serializers-in-mule-4/</link>
+      <guid>https://thevibhor.com/custom-serializers-in-mule-4/</guid>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate>
+      <description>Going beyond default Java serialization when your Mule applications need custom handling.</description>
+    </item>
+    <item>
+      <title>Policy Management With Anypoint Platform</title>
+      <link>https://thevibhor.com/policy-management-with-anypoint-platform/</link>
+      <guid>https://thevibhor.com/policy-management-with-anypoint-platform/</guid>
+      <pubDate>Wed, 07 Aug 2019 00:00:00 GMT</pubDate>
+      <description>Governing APIs after you build them — administration, policies, and operational control.</description>
+    </item>
+    <item>
+      <title>Working with Runtime Fabric</title>
+      <link>https://thevibhor.com/working-with-runtime-fabric/</link>
+      <guid>https://thevibhor.com/working-with-runtime-fabric/</guid>
+      <pubDate>Thu, 25 Jul 2019 00:00:00 GMT</pubDate>
+      <description>Basics of MuleSoft Runtime Fabric and how day-to-day operations fit together.</description>
+    </item>
+    <item>
+      <title>Enable HTTPS on Mule 4 Apps</title>
+      <link>https://thevibhor.com/enable-https-on-mule-4-apps/</link>
+      <guid>https://thevibhor.com/enable-https-on-mule-4-apps/</guid>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 GMT</pubDate>
+      <description>Practical SSL/TLS setup so your Mule 4 APIs meet modern security expectations.</description>
+    </item>
+    <item>
+      <title>Maven Scopes for Mule</title>
+      <link>https://thevibhor.com/maven-scopes-for-mule/</link>
+      <guid>https://thevibhor.com/maven-scopes-for-mule/</guid>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 GMT</pubDate>
+      <description>Using dependency scopes so Mule archives stay lean, consistent, and runtime-compatible.</description>
+    </item>
+  </channel>
+</rss>
