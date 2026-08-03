@@ -1,5 +1,12 @@
 [
   {
+    "slug": "i-ran-a-20b-llm-on-a-400-mini-pc-instead-of-buying-a-gpu",
+    "title": "I Ran a 20B LLM on a £400 Mini PC Instead of Buying a GPU",
+    "tags": ["ai"],
+    "date": "2026-08-03",
+    "excerpt": "Integrated graphics ran gpt-oss:20b well enough for a local AI trading agent."
+  },
+  {
     "slug": "types-of-rag-retrieval-augmented-generation",
     "title": "Types of RAG with Architecture & Implementation Examples",
     "tags": ["ai", "apis", "rag"],

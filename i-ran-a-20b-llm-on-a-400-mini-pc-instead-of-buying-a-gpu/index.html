@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I Ran a 20B LLM on a £400 Mini PC Instead of Buying a GPU — thevibhor.com</title>
+<meta name="description" content="How a £400 BOSGAME mini PC with AMD Ryzen 5 7640HS and Radeon 760M ran gpt-oss:20b locally — and why engineering beats raw GPU spend for personal AI agents.">
+<meta name="author" content="Vibhor Sharma">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="keywords" content="local LLM, Ollama, mini PC, Radeon 760M, gpt-oss 20b, local AI agent, AMD Ryzen AI, no GPU LLM">
+<link rel="canonical" href="https://thevibhor.com/i-ran-a-20b-llm-on-a-400-mini-pc-instead-of-buying-a-gpu/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="thevibhor.com">
+<meta property="og:title" content="I Ran a 20B LLM on a £400 Mini PC Instead of Buying a GPU">
+<meta property="og:description" content="A £400 mini PC with integrated graphics ran gpt-oss:20b well enough to build a local AI trading agent — and changed how I think about hardware.">
+<meta property="og:url" content="https://thevibhor.com/i-ran-a-20b-llm-on-a-400-mini-pc-instead-of-buying-a-gpu/">
+<meta property="og:image" content="https://thevibhor.com/assets/images/local-llm-mini-pc-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="I Ran a 20B LLM on a £400 Mini PC Instead of Buying a GPU">
+<meta name="twitter:description" content="A £400 mini PC with integrated graphics ran gpt-oss:20b well enough to build a local AI trading agent.">
+<meta name="twitter:image" content="https://thevibhor.com/assets/images/local-llm-mini-pc-hero.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "I Ran a 20B LLM on a £400 Mini PC Instead of Buying a GPU… and It Changed My Perspective",
+  "description": "How a £400 BOSGAME mini PC with AMD Ryzen 5 7640HS and Radeon 760M ran gpt-oss:20b locally for a real AI agent.",
+  "url": "https://thevibhor.com/i-ran-a-20b-llm-on-a-400-mini-pc-instead-of-buying-a-gpu/",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "author": {"@type": "Person", "name": "Vibhor Sharma", "url": "https://thevibhor.com/about-us/"},
+  "publisher": {"@type": "Person", "name": "Vibhor Sharma", "url": "https://thevibhor.com"},
+  "mainEntityOfPage": "https://thevibhor.com/i-ran-a-20b-llm-on-a-400-mini-pc-instead-of-buying-a-gpu/",
+  "image": "https://thevibhor.com/assets/images/local-llm-mini-pc-hero.png"
+}
+</script>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" type="application/rss+xml" title="thevibhor.com RSS" href="../feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span class="tag">AI</span> <span class="tag">Local LLM</span> <span>August 3, 2026</span></p>
+  <h1>I Ran a 20B LLM on a £400 Mini PC Instead of Buying a GPU… and It Changed My Perspective</h1>
+  <div class="meta">August 3, 2026 · By Vibhor Sharma</div>
+  <img class="featured featured--portrait" src="../assets/images/local-llm-mini-pc-hero.png" alt="Thumbnail: running a 20B LLM on a BOSGAME mini PC with Ollama instead of buying a dedicated GPU" width="682" height="1024">
+  <div class="content">
+<p>Like many engineers experimenting with local AI, I initially assumed one thing:</p>
+<p><strong>If you want to run a capable LLM locally, you need an expensive NVIDIA GPU.</strong></p>
+<p>Every YouTube video, benchmark, and Reddit thread seemed to point in the same direction — RTX 4090, RTX 5090, multiple GPUs, or don’t even bother.</p>
+<p>So before spending over £1,000 on a graphics card, I decided to run a simple experiment.</p>
+<p>Could a <strong>£400 BOSGAME mini PC</strong> with an <strong>AMD Ryzen 5 7640HS</strong>, <strong>32 GB DDR5 RAM</strong>, and <strong>integrated Radeon 760M graphics</strong> run <strong>gpt-oss:20b</strong> well enough to build a real AI application?</p>
+<p>The answer genuinely surprised me.</p>
+
+<h2>The hardware under test</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Spec</th>
+      <th>What I used</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Machine</td>
+      <td>BOSGAME mini PC (~£400)</td>
+    </tr>
+    <tr>
+      <td>CPU</td>
+      <td>AMD Ryzen 5 7640HS (6 cores / 12 threads)</td>
+    </tr>
+    <tr>
+      <td>GPU</td>
+      <td>Integrated Radeon 760M</td>
+    </tr>
+    <tr>
+      <td>RAM</td>
+      <td>32 GB DDR5</td>
+    </tr>
+    <tr>
+      <td>Storage</td>
+      <td>NVMe SSD</td>
+    </tr>
+    <tr>
+      <td>Stack</td>
+      <td>Ollama, Docker, Open WebUI, agents, APIs</td>
+    </tr>
+    <tr>
+      <td>Model</td>
+      <td>gpt-oss:20b (quantised, local)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>My goal wasn’t a chatbot</h2>
+<p>I wasn’t interested in asking an LLM random questions.</p>
+<p>I wanted to build something useful.</p>
+<p>In my case, that meant creating a <strong>fully local AI trading agent</strong> capable of:</p>
+<ul>
+<li>Analysing market data</li>
+<li>Making structured trading decisions</li>
+<li>Returning valid JSON</li>
+<li>Calling external APIs</li>
+<li>Running 24×7 without cloud costs</li>
+<li>Keeping all data local</li>
+</ul>
+<p>That is very different from simply measuring tokens per second.</p>
+
+<h2>The biggest problem wasn’t performance</h2>
+<p>After getting everything running, I realised something interesting.</p>
+<p>The hardware wasn’t the biggest challenge.</p>
+<p>The model was fast enough for my use case.</p>
+<p>Instead, I spent far more time solving problems like:</p>
+<ul>
+<li>Inconsistent JSON responses</li>
+<li>Prompt engineering</li>
+<li>Function calling</li>
+<li>Context management</li>
+<li>Model parameters</li>
+<li>Reliability across multiple requests</li>
+</ul>
+<p>In other words…</p>
+<p><strong>Engineering the system became more important than buying faster hardware.</strong></p>
+
+<h2>Modern integrated graphics are better than most people think</h2>
+<p>Would I train a 70B model on this machine?</p>
+<p>Of course not.</p>
+<p>Would I serve hundreds of concurrent users?</p>
+<p>Probably not.</p>
+<p>But for a personal AI assistant, automation workflows, API orchestration, or intelligent agents, the experience was much better than I expected.</p>
+<p>The integrated Radeon 760M proved perfectly capable of running a quantised 20B model for practical development work.</p>
+
+<h2>Cost changes everything</h2>
+<p>One thing that often gets overlooked is total cost.</p>
+<p>For roughly the price of a mid-range GPU, I bought an entire computer that now runs:</p>
+<ul>
+<li>Ollama</li>
+<li>Docker</li>
+<li>Open WebUI</li>
+<li>AI agents</li>
+<li>APIs</li>
+<li>Databases</li>
+<li>Development tools</li>
+</ul>
+<p>And because it’s a complete machine rather than just a GPU, it stays powered on all day, quietly consuming a fraction of the electricity of a gaming desktop.</p>
+<p>For a home AI lab, that’s a huge advantage.</p>
+
+<blockquote>
+<p>You don’t always need an expensive GPU to build powerful AI applications. Sometimes, engineering &gt; raw compute.</p>
+</blockquote>
+
+<h2>Benchmarks don’t tell the whole story</h2>
+<p>We spend a lot of time comparing:</p>
+<ul>
+<li>Tokens per second</li>
+<li>VRAM</li>
+<li>FLOPS</li>
+<li>Benchmark charts</li>
+</ul>
+<p>Those numbers matter.</p>
+<p>But they don’t tell you whether you can actually build a reliable AI application.</p>
+<p>In my experience, factors like prompt design, inference settings, model choice, and orchestration had a much bigger impact than another 20–30 tokens per second.</p>
+
+<h2>Would I still buy a GPU?</h2>
+<p>Yes — if I were:</p>
+<ul>
+<li>Training models</li>
+<li>Running 70B+ models</li>
+<li>Serving multiple users simultaneously</li>
+<li>Chasing maximum throughput</li>
+</ul>
+<p>But for developers building AI copilots, integrations, automation platforms, or personal agents, I think modern mini PCs deserve far more attention than they receive.</p>
+
+<h2>Final thoughts</h2>
+<p>This experiment completely changed how I think about local AI.</p>
+<p>The conversation shouldn’t start with:</p>
+<p><em>“Which GPU should I buy?”</em></p>
+<p>It should start with:</p>
+<p><em>“What problem am I trying to solve?”</em></p>
+<p>For me, a <strong>£400 BOSGAME mini PC with an AMD Ryzen 5 7640HS</strong> turned out to be more than capable of running <strong>gpt-oss:20b</strong> and powering the kind of AI agent I wanted to build.</p>
+<p>Sometimes, the biggest limitation isn’t the hardware.</p>
+<p>It’s how well you engineer the system around the model.</p>
+<p>I’m now experimenting with different inference engines, structured output techniques, and agent frameworks to make local models even more reliable.</p>
+<p><strong>Have you tried running a serious local LLM without a dedicated GPU? I’d love to hear what hardware and models you’re using</strong> — drop a note via <a href="https://topmate.io/vibhor_s" rel="noopener">Topmate</a> or <a href="https://www.linkedin.com/in/svibhors" rel="noopener">LinkedIn</a>.</p>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a> · <a href="../feed.xml">RSS</a></span>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

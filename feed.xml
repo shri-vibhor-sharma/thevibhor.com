@@ -7,6 +7,13 @@
     <language>en-gb</language>
     <atom:link href="https://thevibhor.com/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>I Ran a 20B LLM on a £400 Mini PC Instead of Buying a GPU</title>
+      <link>https://thevibhor.com/i-ran-a-20b-llm-on-a-400-mini-pc-instead-of-buying-a-gpu/</link>
+      <guid isPermaLink="true">https://thevibhor.com/i-ran-a-20b-llm-on-a-400-mini-pc-instead-of-buying-a-gpu/</guid>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A £400 BOSGAME mini PC with Radeon 760M ran gpt-oss:20b well enough to power a local AI trading agent — no discrete GPU required.</description>
+    </item>
+    <item>
       <title>Types of RAG with Architecture &amp; Implementation Examples</title>
       <link>https://thevibhor.com/types-of-rag-retrieval-augmented-generation/</link>
       <guid isPermaLink="true">https://thevibhor.com/types-of-rag-retrieval-augmented-generation/</guid>

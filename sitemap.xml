@@ -6,6 +6,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://thevibhor.com/i-ran-a-20b-llm-on-a-400-mini-pc-instead-of-buying-a-gpu/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://thevibhor.com/about-us/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
