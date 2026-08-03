@@ -1,5 +1,12 @@
 [
   {
+    "slug": "assembling-a-pc-is-like-mulesoft-composable-architecture",
+    "title": "Assembling a PC Is Like MuleSoft Composable Architecture",
+    "tags": ["mulesoft", "strategy"],
+    "date": "2026-08-03",
+    "excerpt": "Sealed mini PCs are cheap middleware; upgradeable PCs are composable architecture."
+  },
+  {
     "slug": "i-ran-a-20b-llm-on-a-400-mini-pc-instead-of-buying-a-gpu",
     "title": "I Ran a 20B LLM on a £400 Mini PC Instead of Buying a GPU",
     "tags": ["ai"],
