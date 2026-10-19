@@ -7,6 +7,13 @@
     <language>en-gb</language>
     <atom:link href="https://thevibhor.com/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>I Built My First AI Agent — Loop, Harness &amp; Tools</title>
+      <link>https://thevibhor.com/i-built-my-first-ai-agent-loop-harness-and-tools/</link>
+      <guid isPermaLink="true">https://thevibhor.com/i-built-my-first-ai-agent-loop-harness-and-tools/</guid>
+      <pubDate>Sun, 19 Oct 2026 14:00:00 GMT</pubDate>
+      <description>A local Hermes stock research CLI: Runner as the harness, three JSON tools, and why tool_choice=required mattered.</description>
+    </item>
+    <item>
       <title>Every Applied AI Architect Should Know These Topics</title>
       <link>https://thevibhor.com/every-applied-ai-architect-should-know-these-topics/</link>
       <guid isPermaLink="true">https://thevibhor.com/every-applied-ai-architect-should-know-these-topics/</guid>

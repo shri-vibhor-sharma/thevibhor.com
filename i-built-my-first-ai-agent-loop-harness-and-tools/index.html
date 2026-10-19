@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I Built My First AI Agent — Loop, Harness &amp; Tools — thevibhor.com</title>
+<meta name="description" content="How I built a local stock research agent with OpenAI Agents SDK: Runner as the harness, three JSON tools, Hermes 14B, and the tool_choice lesson that made it work.">
+<meta name="author" content="Vibhor Sharma">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="keywords" content="first AI agent, agent loop, agent harness, OpenAI Agents SDK, local LLM, Hermes, tool calling, stock research agent">
+<link rel="canonical" href="https://thevibhor.com/i-built-my-first-ai-agent-loop-harness-and-tools/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="thevibhor.com">
+<meta property="og:title" content="I Built My First AI Agent — Loop, Harness &amp; Tools">
+<meta property="og:description" content="A CLI stock research agent on local Hermes: Runner as the harness, three tools that return JSON, and why tool_choice=required mattered.">
+<meta property="og:url" content="https://thevibhor.com/i-built-my-first-ai-agent-loop-harness-and-tools/">
+<meta property="og:image" content="https://thevibhor.com/assets/images/first-stock-agent-loop-harness-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="I Built My First AI Agent — Loop, Harness &amp; Tools">
+<meta name="twitter:description" content="A CLI stock research agent on local Hermes: Runner as the harness, three tools, and the local-model tool-calling gotcha.">
+<meta name="twitter:image" content="https://thevibhor.com/assets/images/first-stock-agent-loop-harness-hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "I Built My First AI Agent — Loop, Harness & Tools",
+  "description": "How I built a local stock research agent with OpenAI Agents SDK: Runner as the harness, three JSON tools, Hermes 14B, and the tool_choice lesson.",
+  "url": "https://thevibhor.com/i-built-my-first-ai-agent-loop-harness-and-tools/",
+  "datePublished": "2026-10-19",
+  "dateModified": "2026-10-19",
+  "author": {"@type": "Person", "name": "Vibhor Sharma", "url": "https://thevibhor.com/about-us/"},
+  "publisher": {"@type": "Person", "name": "Vibhor Sharma", "url": "https://thevibhor.com"},
+  "mainEntityOfPage": "https://thevibhor.com/i-built-my-first-ai-agent-loop-harness-and-tools/",
+  "image": "https://thevibhor.com/assets/images/first-stock-agent-loop-harness-hero.jpg"
+}
+</script>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" type="application/rss+xml" title="thevibhor.com RSS" href="../feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span class="tag">AI</span> <span class="tag">Agents</span> <span>October 19, 2026</span></p>
+  <h1>I Built My First AI Agent — Loop, Harness &amp; Tools That Won’t Invent Prices</h1>
+  <div class="meta">October 19, 2026 · By Vibhor Sharma</div>
+  <img class="featured" src="../assets/images/first-stock-agent-loop-harness-hero.jpg" alt="Illustration of a local AI agent loop calling quote, history, and search tools into a research note" width="1280" height="720">
+  <div class="content">
+<p>I did not want another chatbot that “sounds like” it checked the market.</p>
+<p>I wanted something smaller and more honest: a CLI that, when I type <code>AAPL</code>, is <em>forced</em> to call tools for a quote, history, and web context — then synthesise a cautious research note on a model running on my own machine.</p>
+<p>So I built <strong>Stock Research Agent</strong> — my first real agent. Not a notebook demo. A thin Python package with a loop, a harness, three tools, and a prompt that behaves like product policy.</p>
+<p>This post is the field notes. It also maps cleanly onto the four topics I wrote about in <a href="../every-applied-ai-architect-should-know-these-topics/">Every Applied AI Architect Should Know These Topics</a>: prompt, context, harness, evals.</p>
+
+<h2>What it does</h2>
+<p>One command:</p>
+<pre><code>python -m stock_agent AAPL</code></pre>
+<p>Under the hood that expands into a research prompt, then the agent must:</p>
+<ol>
+<li>Fetch a near-real-time quote (<code>yfinance</code>)</li>
+<li>Optionally pull recent daily closes for trend context</li>
+<li>Search the web for catalysts (DuckDuckGo)</li>
+<li>Ask local <strong>NousResearch Hermes 4 14B</strong> (via an OpenAI-compatible server on <code>localhost:1234</code>) to write markdown: Live snapshot → Recent context → Cautious outlook → Risks → Disclaimer</li>
+</ol>
+<p>Interactive mode works too — a simple <code>You&gt;</code> REPL for follow-ups. Educational analysis only. Not financial advice. The agent is required to say that out loud at the end of every answer.</p>
+
+<h2>Agent ≠ one completion</h2>
+<p>A chatbot is: prompt in, text out.</p>
+<p>An agent is: prompt in → model decides → tools run → results return → model decides again → … until it stops with a final answer.</p>
+<p>That middle part is the <strong>loop</strong>. The thing that owns the loop is the <strong>harness</strong>.</p>
+<p>I did not write a custom loop. I used the OpenAI Agents SDK <code>Runner</code> as the harness and focused my energy on instructions, tools, and local-model quirks — which is exactly where first agents teach you the most.</p>
+
+<pre><code>User / CLI
+    ↓
+build_agent()          ← instructions + tools + local model
+    ↓
+Runner.run(agent, prompt)   ← the harness / tool loop
+    ↓
+Hermes 14B  ↔  get_stock_quote
+            ↔  get_stock_history
+            ↔  search_web
+    ↓
+final_output (markdown research note)</code></pre>
+
+<h2>The harness is three lines (and a whole product)</h2>
+<p>In <code>main.py</code> the run site looks almost boring:</p>
+<pre><code>async def _run_once(agent, prompt: str) -&gt; str:
+    result = await Runner.run(agent, prompt)
+    return result.final_output or ""</code></pre>
+<p>That is the point. The harness’s job is to be dull and reliable:</p>
+<ol>
+<li>Call the model with the conversation so far</li>
+<li>If the model returns a final answer → stop</li>
+<li>If the model returns tool calls → execute them, append JSON results, loop</li>
+</ol>
+<p>There is a <em>second</em> loop in the project too — the interactive <code>while True: input("You&gt;")</code> REPL. Do not confuse the two. One is you talking to the agent. The other is the agent talking to tools.</p>
+
+<h2>Defining the agent: prompt as policy</h2>
+<p><code>build_agent()</code> wires a local OpenAI-compatible client to Hermes and attaches three tools. The interesting bit is the instructions — this is prompt engineering as a behaviour contract, not poetry:</p>
+<ul>
+<li>You <strong>MUST</strong> call tools. Never invent prices, volumes, dates, or news.</li>
+<li>Always quote first when a ticker appears.</li>
+<li>Always search before any outlook.</li>
+<li>Separate facts from speculation.</li>
+<li>Fixed markdown sections + a hard disclaimer line.</li>
+</ul>
+<p>That is the same idea as “prompts are configuration” from the applied-architect post — just living in a ~40-line string instead of an enterprise Prompt Builder template.</p>
+
+<h2>The local-model gotcha that almost killed the demo</h2>
+<p>Small local models love to <em>narrate</em> tool use instead of doing it. They write fake JSON. They “summarise the market” from training cut-off vibes.</p>
+<p>Two defences mattered:</p>
+<ol>
+<li><strong>Prompt law:</strong> “Do not write fake JSON or pretend tool output. Use real function calls.”</li>
+<li><strong>Harness knob:</strong> <code>ModelSettings(tool_choice="required")</code> so the first turn cannot skip tools.</li>
+</ol>
+<p>Also: <code>set_tracing_disabled(True)</code> — local servers are not OpenAI’s cloud, and you do not want the SDK politely asking for a cloud API key while you are trying to talk to Hermes on port 1234.</p>
+<p>If you only steal one line from this project, steal <code>tool_choice="required"</code> for your first local agent.</p>
+
+<h2>Tool design: context as JSON, not vibes</h2>
+<p>Context engineering here is not a vector database. It is three tools that return <strong>compact, honest JSON</strong> the model can cite:</p>
+<ul>
+<li><code>get_stock_quote</code> — price, change, volume, ranges, <code>as_of_utc</code>, plus a note that yfinance may be delayed</li>
+<li><code>get_stock_history</code> — last <strong>20</strong> daily closes only (deliberately small for a 14B context window)</li>
+<li><code>search_web</code> — max <strong>5</strong> DuckDuckGo hits with title / url / snippet</li>
+</ul>
+<p>Errors return JSON too (<code>{"error": "..."}</code>) so the loop can recover instead of exploding mid-turn. That is harness thinking applied to tool contracts: fail soft, stay machine-readable.</p>
+<p>No long-term memory. No RAG over PDFs. Per-run context is whatever <code>Runner</code> accumulates — user prompt + tool results. For a first agent, that constraint is a feature. You learn the loop before you drown in infrastructure.</p>
+
+<h2>UX sugar that earned its keep</h2>
+<p>Typing <code>NVDA</code> should not require a TED talk. If the CLI argument looks like a ticker (no spaces, ≤ 8 chars), it expands to:</p>
+<blockquote>
+<p>Research NVDA: give a live quote snapshot, recent news from the web, and a cautious outlook with risks.</p>
+</blockquote>
+<p>Longer strings pass through unchanged. Connection errors print a hint to check <code>BIONIC_BASE_URL</code>. Model 404s tell you to <code>curl /v1/models</code> and fix <code>BIONIC_MODEL</code>. Small things. They decide whether you run the agent again tomorrow.</p>
+
+<h2>Where this sits on the four topics</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>In this first agent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Prompt engineering</strong></td>
+      <td>Instructions as policy: must-call-tools, section template, disclaimer</td>
+    </tr>
+    <tr>
+      <td><strong>Context engineering</strong></td>
+      <td>Quote + history + search JSON; compact payloads for a small local model</td>
+    </tr>
+    <tr>
+      <td><strong>Agent harness</strong></td>
+      <td>OpenAI Agents <code>Runner</code> loop; local client; tracing off; <code>tool_choice=required</code></td>
+    </tr>
+    <tr>
+      <td><strong>Agent evals</strong></td>
+      <td>Honest gap — none yet. Next on the list.</td>
+    </tr>
+  </tbody>
+</table>
+<p>That last row is deliberate. Shipping without evals taught me the shape of the system. Operating without them is how you get confident nonsense. Next experiments: a golden set of tickers/questions, assert that quote + search were called, and score “no invented numbers.”</p>
+
+<h2>What I would add next</h2>
+<ul>
+<li><strong>Evals:</strong> ten fixed scenarios; fail the run if tools were skipped or prices appear without a quote tool result</li>
+<li><strong>Streaming + traces:</strong> show tool calls live in the terminal so the loop is visible</li>
+<li><strong>Stricter tool schemas:</strong> reject outlook sections that cite headlines not present in search JSON</li>
+<li><strong>Optional cloud model switch:</strong> same harness, different <code>base_url</code> — prove the architecture is portable</li>
+</ul>
+
+<h2>Closing</h2>
+<p>My first agent is not clever because it uses a fancy framework. It is useful because it refuses to invent a stock price.</p>
+<p>The loop belongs to the harness. The truth belongs to the tools. The behaviour belongs to the prompt. And until you add evals, you are still in the learning gym — which is fine, as long as you know which floor you are on.</p>
+<p>If you are starting your own first agent: pick one job, three tools that return JSON, a local model you can restart at 1 a.m., and a prompt that sounds like a contract. Then force the first tool call. Everything else is polish.</p>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a> · <a href="../feed.xml">RSS</a></span>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

@@ -1,5 +1,12 @@
 [
   {
+    "slug": "i-built-my-first-ai-agent-loop-harness-and-tools",
+    "title": "I Built My First AI Agent — Loop, Harness & Tools",
+    "tags": ["ai"],
+    "date": "2026-10-19",
+    "excerpt": "Local Hermes stock agent: Runner harness, three JSON tools, tool_choice lesson."
+  },
+  {
     "slug": "every-applied-ai-architect-should-know-these-topics",
     "title": "Every Applied AI Architect Should Know These Topics",
     "tags": ["ai"],
