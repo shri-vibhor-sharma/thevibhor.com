@@ -1,5 +1,12 @@
 [
   {
+    "slug": "every-applied-ai-architect-should-know-these-topics",
+    "title": "Every Applied AI Architect Should Know These Topics",
+    "tags": ["ai"],
+    "date": "2026-10-19",
+    "excerpt": "Prompt, context, harness, evals — with Salesforce-first learning paths."
+  },
+  {
     "slug": "assembling-a-pc-is-like-mulesoft-composable-architecture",
     "title": "Building Modular PCs Taught Me How Enterprises Should Buy Integration Platforms",
     "tags": ["mulesoft", "strategy"],

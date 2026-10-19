@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Every Applied AI Architect Should Know These Topics — thevibhor.com</title>
+<meta name="description" content="The four topics that separate demo agents from production systems: prompt engineering, context engineering, agent harness, and agent evals — with Salesforce-first learning paths.">
+<meta name="author" content="Vibhor Sharma">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="keywords" content="applied AI architect, AI agent, prompt engineering, context engineering, agent harness, agent evals, enterprise AI, Agentforce">
+<link rel="canonical" href="https://thevibhor.com/every-applied-ai-architect-should-know-these-topics/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="thevibhor.com">
+<meta property="og:title" content="Every Applied AI Architect Should Know These Topics">
+<meta property="og:description" content="Prompt, context, harness, evals — the four topics that decide whether your AI agent survives contact with a real enterprise.">
+<meta property="og:url" content="https://thevibhor.com/every-applied-ai-architect-should-know-these-topics/">
+<meta property="og:image" content="https://thevibhor.com/assets/images/applied-ai-architect-four-pillars-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Every Applied AI Architect Should Know These Topics">
+<meta name="twitter:description" content="Prompt, context, harness, evals — the four topics that decide whether your AI agent survives contact with a real enterprise.">
+<meta name="twitter:image" content="https://thevibhor.com/assets/images/applied-ai-architect-four-pillars-hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Every Applied AI Architect Should Know These Topics",
+  "description": "The four topics that separate demo agents from production systems: prompt engineering, context engineering, agent harness, and agent evals.",
+  "url": "https://thevibhor.com/every-applied-ai-architect-should-know-these-topics/",
+  "datePublished": "2026-10-19",
+  "dateModified": "2026-10-19",
+  "author": {"@type": "Person", "name": "Vibhor Sharma", "url": "https://thevibhor.com/about-us/"},
+  "publisher": {"@type": "Person", "name": "Vibhor Sharma", "url": "https://thevibhor.com"},
+  "mainEntityOfPage": "https://thevibhor.com/every-applied-ai-architect-should-know-these-topics/",
+  "image": "https://thevibhor.com/assets/images/applied-ai-architect-four-pillars-hero.jpg"
+}
+</script>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" type="application/rss+xml" title="thevibhor.com RSS" href="../feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../">thevibhor.com</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../">Articles</a>
+      <a href="../about-us/">About</a>
+      <a href="../contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="article">
+  <p class="article-kicker"><span class="tag">AI</span> <span class="tag">Agents</span> <span>October 19, 2026</span></p>
+  <h1>Every Applied AI Architect Should Know These Topics</h1>
+  <div class="meta">October 19, 2026 · By Vibhor Sharma</div>
+  <img class="featured" src="../assets/images/applied-ai-architect-four-pillars-hero.jpg" alt="Isometric illustration of an AI agent system: prompt contract, context streams, harness chassis, and eval instrumentation" width="1280" height="720">
+  <div class="content">
+<p>Picture this war room.</p>
+<p>The CFO has seen three vendor demos. The CMO wants a “customer agent” by quarter-end. Security wants a kill switch. A junior engineer has wired GPT to Salesforce with a service account that can update every Case. Someone says the word <em>Agentforce</em>. Someone else says <em>RAG</em>. Everyone nods. Nobody owns the failure mode.</p>
+<p>If you are an <strong>applied AI architect</strong>, this is your job interview — every week. Not “which model is smartest,” but: <em>what do we tell the agent, what is it allowed to see, how does it act inside our systems, and how do we know it still works on Tuesday?</em></p>
+<p>I compress that whole discipline into four topics:</p>
+<ol>
+<li><strong>Prompt engineering</strong> — the behaviour contract</li>
+<li><strong>Context engineering</strong> — the truth supply chain</li>
+<li><strong>Agent harness</strong> — the runtime that can act safely</li>
+<li><strong>Agent evals</strong> — the proof under change</li>
+</ol>
+<p>Miss one and you do not have an architecture. You have a LinkedIn clip.</p>
+
+<h2>The story that keeps repeating</h2>
+<p>A global retailer builds a returns assistant. In the demo, it apologises beautifully, cites a policy PDF, and “opens a case.” Applause.</p>
+<p>In week two of limited rollout:</p>
+<ul>
+<li>It invents a goodwill refund because the prompt said “be helpful”</li>
+<li>It quotes last year’s EU policy for a US customer — wrong context, confident tone</li>
+<li>It calls <code>UpdateCase</code> with a shared integration user — no per-user auth, no human gate</li>
+<li>Nobody notices until undo volume spikes, because there is no eval suite</li>
+</ul>
+<p>Same model. Same logo. Different outcome. The difference was never the LLM brand. It was the four topics below.</p>
+
+<h2>1. Prompt engineering — write the law, not the poem</h2>
+<p>Most teams still treat prompting like creative writing. Applied architects treat it like <strong>policy as code</strong>.</p>
+<p>The prompt is not “be a friendly assistant.” It is the constitution:</p>
+<ul>
+<li>Who the agent is — and who it is <em>not</em></li>
+<li>What it must refuse (refunds above a threshold, inventing entitlements, guessing PII)</li>
+<li>How it thinks (plan → verify → act, or escalate when unsure)</li>
+<li>What “done” looks like (structured JSON, citations, next-best-action)</li>
+</ul>
+<p>In a real enterprise, that constitution is versioned, reviewed by security and legal, and different for a dealer portal vs an internal warranty analyst. If you cannot roll a prompt back the way you roll back an API policy, you are shipping vibes.</p>
+<p><strong>Field test:</strong> ask the room, “Which git commit is the system prompt in?” If the answer is a Confluence page from March, you already know why the pilot is sticky.</p>
+<p><strong>Learn more</strong></p>
+<ul>
+<li><a href="https://trailhead.salesforce.com/content/learn/modules/prompt-fundamentals/write-better-prompts" rel="noopener">Salesforce Trailhead — Write Better Prompts</a></li>
+<li><a href="https://trailhead.salesforce.com/content/learn/modules/prompt-engineering-techniques/get-hands-on-with-prompts" rel="noopener">Salesforce Trailhead — Advanced Prompt Engineering Techniques</a></li>
+<li><a href="https://developer.salesforce.com/docs/ai/agentforce/guide/get-started-prompt-builder.html" rel="noopener">Salesforce Developers — Prompt Builder (Agentforce)</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/prompt-engineering" rel="noopener">OpenAI — Prompt engineering guide</a></li>
+</ul>
+
+<h2>2. Context engineering — stop stuffing, start curating</h2>
+<p>Prompts tell the agent how to behave. <strong>Context</strong> decides whether it is telling the truth.</p>
+<p>This is where expensive models still fail. They will cheerfully answer from the wrong region’s policy, a stale CRM note, or a chunk that “feels similar” in the vector store. Context engineering is the supply chain:</p>
+<ul>
+<li>What to fetch — policies, cases, orders, entitlements</li>
+<li>How to fetch it — RAG patterns, search, graphs, SQL, live APIs</li>
+<li>What stays in the window — summaries, memory, session state</li>
+<li>What must never enter — other tenants, secrets, unauthorised fields</li>
+</ul>
+<p>I go deep on retrieval patterns in <a href="../types-of-rag-retrieval-augmented-generation/">Types of RAG</a>. The architect’s upgrade is bigger than “add Pinecone.” You name sources of truth, freshness rules, and how identity travels with every chunk.</p>
+<p>Stuffing the prompt with everything “just in case” is not diligence. It is <strong>context pollution</strong> — and it makes evals look mysterious later.</p>
+<p>Also the boring foundation that keeps winning deals: <a href="../there-is-no-ai-without-api/">there is no AI without API</a>. If the agent cannot fetch trusted data on demand, you are running a museum exhibit.</p>
+<p><strong>Field test:</strong> for one golden question, can you point to the exact system of record that should win — and prove the agent used it?</p>
+<p><strong>Learn more</strong></p>
+<ul>
+<li><a href="https://trailhead.salesforce.com/content/learn/modules/grounding-an-agent-with-data/review-options-to-ground-an-agent-with-data" rel="noopener">Salesforce Trailhead — Grounding Agents with Data</a></li>
+<li><a href="https://trailhead.salesforce.com/content/learn/modules/data-cloud-powered-agentforce/explore-data-cloud-and-agentforce" rel="noopener">Salesforce Trailhead — Data Cloud / Data 360 powered Agentforce</a></li>
+<li><a href="https://developer.salesforce.com/docs/data/agentic-memory-context/guide/agentic-memory-agentic-context.html" rel="noopener">Salesforce Developers — Agentic Context (GetContext API)</a></li>
+<li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" rel="noopener">Anthropic — Effective context engineering for AI agents</a></li>
+</ul>
+
+<h2>3. Agent harness — the chassis, not the chatbot</h2>
+<p>Here is the uncomfortable line: a chat UI is not an agent. An <strong>agent harness</strong> is.</p>
+<p>The harness is the chassis around the model — the part integration architects already recognise:</p>
+<ul>
+<li>Tool / action registry — which APIs exist, with schemas and side effects</li>
+<li>Orchestration loop — plan, call, observe, retry, stop</li>
+<li>AuthN / AuthZ on every tool call — least privilege, not “god mode” demo users</li>
+<li>Timeouts, idempotency, rate limits, human-in-the-loop gates</li>
+<li>Tracing, cost caps, kill switches</li>
+</ul>
+<p>If your agent can “update Salesforce” with fewer controls than a MuleSoft API, you have not innovated. You have skipped a decade of hard-won enterprise habits.</p>
+<p>Whether you land on Agentforce actions, MuleSoft <strong>Agent Fabric</strong>, LangGraph-style loops, or a custom orchestrator, the review questions do not change:</p>
+<ol>
+<li>What can it discover?</li>
+<li>What can it invoke?</li>
+<li>Who approved that capability?</li>
+<li>What happens when the tool lies, times out, or partially succeeds?</li>
+</ol>
+<p><strong>Field test:</strong> break the downstream API on purpose in a lower environment. Does the agent escalate cleanly — or invent a happy path?</p>
+<p><strong>Learn more</strong></p>
+<ul>
+<li><a href="https://docs.mulesoft.com/general/agent-fabric-overview" rel="noopener">MuleSoft Docs — Agent Fabric overview</a></li>
+<li><a href="https://www.salesforce.com/mulesoft/agent-fabric/" rel="noopener">Salesforce — Agent Fabric product overview</a></li>
+<li><a href="https://docs.mulesoft.com/general/af-get-started" rel="noopener">MuleSoft Docs — Get started with Agent Fabric</a></li>
+<li><a href="https://www.anthropic.com/engineering/writing-tools-for-agents" rel="noopener">Anthropic — Writing effective tools for AI agents</a></li>
+</ul>
+
+<h2>4. Agent evals — if you cannot score it, you cannot ship it</h2>
+<p>Chatbots can hide behind “feels good in the demo.” Agents that change money, inventory, or cases cannot.</p>
+<p><strong>Agent evals</strong> are how you notice the loop getting worse after a “tiny” prompt tweak. They are a regression suite for behaviour:</p>
+<ul>
+<li><strong>Task success</strong> — did the job actually finish?</li>
+<li><strong>Groundedness</strong> — did it invent policy?</li>
+<li><strong>Tool correctness</strong> — right API, right args, right order?</li>
+<li><strong>Safety</strong> — jailbreaks, PII, out-of-scope actions</li>
+<li><strong>Latency and cost</strong> — correct answers that cost £2 a turn will not scale</li>
+</ul>
+<p>Start with ten scenarios that represent real money and real risk — not a hundred toy questions. Happy path. Hostile user. Missing context. Tool outage. Wrong region. Then block releases that drop below the bar.</p>
+<p>Salesforce’s Agentforce Testing API exists for a reason: production agents need automated expectations, not vibes in a Builder preview pane.</p>
+<p><strong>Field test:</strong> change one sentence in the system prompt. Which eval fails first — and who gets paged?</p>
+<p><strong>Learn more</strong></p>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/ai/agentforce/guide/testing-api.html" rel="noopener">Salesforce Developers — Agentforce Testing API</a></li>
+<li><a href="https://developer.salesforce.com/docs/ai/agentforce/guide/testing-api-build-tests.html" rel="noopener">Salesforce Developers — Build agent tests (AiEvaluationDefinition)</a></li>
+<li><a href="https://developer.salesforce.com/docs/ai/agentforce/guide/testing-api-custom-evaluation-criteria.html" rel="noopener">Salesforce Developers — Custom evaluation criteria</a></li>
+<li><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" rel="noopener">Anthropic — Demystifying evals for AI agents</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/agent-evals" rel="noopener">OpenAI — Evaluate agent workflows</a></li>
+</ul>
+
+<h2>How the four lock together</h2>
+<p>Think of the agent as a stack, not a shopping list:</p>
+<pre><code>Business goal
+    → Prompt   (the law)
+    → Context  (the evidence)
+    → Harness  (the hands)
+    → Evals    (the courtroom)
+</code></pre>
+<p>Change the prompt without touching evals and you are flying blind. Improve retrieval without hardening the harness and you get a smarter agent that can still do the wrong thing faster. Build a gorgeous harness with a vague prompt and muddy context and you have enterprise plumbing attached to a confused brain.</p>
+<p>Applied AI architecture is the discipline of keeping all four coherent under change — while vendors ship new model names every quarter.</p>
+
+<h2>Steal this design-review checklist</h2>
+<ul>
+<li><strong>Prompt:</strong> Versioned? Role-specific? Rollback path clear?</li>
+<li><strong>Context:</strong> Named source of truth per claim? ACL on every retrieval?</li>
+<li><strong>Harness:</strong> Least privilege? Observable? Fail-safe on tool errors?</li>
+<li><strong>Evals:</strong> Which suite fails if this change makes the agent worse?</li>
+</ul>
+<p>If any answer is “we will figure it out after the pilot,” you do not have a production design. You have a slide with a robot icon.</p>
+
+<h2>Closing</h2>
+<p>Model choice still matters. Platforms still matter. Brand still matters in the boardroom.</p>
+<p>But the architects who ship durable agents obsess over <strong>prompt engineering, context engineering, agent harness, and agent evals</strong> — because that is where demos become operating systems for work.</p>
+<p>Master those four and every new model release becomes an upgrade path. Skip them and every new model release becomes another expensive pilot that dies the same quiet death.</p>
+  </div>
+  <a class="back-link" href="../">← Back to articles</a>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 Vibhor Sharma · thevibhor.com</span>
+    <span><a href="../">Articles</a> · <a href="../about-us/">About</a> · <a href="../contact-us/">Contact</a> · <a href="../feed.xml">RSS</a></span>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>
